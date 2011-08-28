@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>css3 selector demo</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js"></script>
     <script src="js/selectivizr.js"></script>
     <style type="text/css">
     div.wrapper{width:400px;height:400px;margin:0 auto;}
@@ -19,6 +20,5 @@
     <div>div 3</div>
     <div id="demo">div 3</div>
 </div>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js"></script>
 </body>
 </html>
