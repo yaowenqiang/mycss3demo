@@ -1,7 +1,8 @@
    div.wrapper{width:400px;height:400px;margin:0 auto;}
    div.wrapper div{height:100px;} 
    div.wrapper div:nth-child(2n){color:red;} 
-   div.wrapper div:nth-child(2n+1){color:orange;} 
+   //div.wrapper div:nth-child(2n+1){color:orange;} 
    div[id]{color:yellow;} 
-   div[id~=divs]{color:orange;} 
+   div[id~=divs]{color:blue;} 
+   div[id|=zh]{color:green;} 
 
