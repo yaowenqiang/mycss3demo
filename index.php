@@ -7,8 +7,8 @@
     <style type="text/css">
     div.wrapper{width:400px;height:400px;margin:0 auto;}
    div.wrapper div{height:100px;} 
-   div.wrapper div:nth-child(2n){color:red;} 
-   div.wrapper div:nth-child(2n+1){color:orange;} 
+   div.wrapper div:nth-child(2){color:red;} 
+   div.wrapper div:nth-child(2+1){color:orange;} 
     </style>
 </head>
 <body>
