@@ -3,12 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>css3 selector demo</title>
-    <script src="js/selectivizr.js"></script>
     <style type="text/css">
+<!--[if (gte IE 6)&(lte IE 8)]>
+  <script type="text/javascript" src="js/selectivizr.js"></script>
+<![endif]-->
     div.wrapper{width:400px;height:400px;margin:0 auto;}
    div.wrapper div{height:100px;} 
-   div.wrapper div:nth-child(2){color:red;} 
-   div.wrapper div:nth-child(2+1){color:orange;} 
+   div.wrapper div:nth-child(2n){color:red;} 
+   div.wrapper div:nth-child(2n+1){color:orange;} 
+   div[id]{background:#eee;}
     </style>
 </head>
 <body>
@@ -16,6 +19,7 @@
     <div>div1</div>
     <div>div 2</div>
     <div>div 3</div>
+    <div id="demo">demo</div>
 </div>
 	
 </body>
