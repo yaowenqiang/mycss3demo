@@ -3,5 +3,5 @@
    div.wrapper div:nth-child(2n){color:red;} 
    div.wrapper div:nth-child(2n+1){color:orange;} 
    div[id]{color:yellow;} 
-   div[id~="divs"]{color:orange;} 
+   div[id~=divs]{color:orange;} 
 
