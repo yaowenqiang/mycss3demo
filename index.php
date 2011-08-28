@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script><title>css3 selector demo</title>
+    <title>css3 selector demo</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="js/selectivizr.js"></script>
     <style type="text/css">
     div.wrapper{width:400px;height:400px;margin:0 auto;}
