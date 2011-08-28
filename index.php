@@ -19,6 +19,6 @@
     <div>div 3</div>
     <div id="demo">div 3</div>
 </div>
-	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js"></script>
 </body>
 </html>
