@@ -9,16 +9,17 @@
 <body>
 <header id="main">
 	<div id="logo">Kingdee k/3 HR Plus</div>
-	<div>Microsoft (China) Co.LTD</div>
+	<div id="company">Microsoft (China) Co.LTD</div>
 	<nav>
 		<a href="#">Admin</a> |
 		<a href="#">Setting</a> |
 		<a href="#">Logout</a> |
 		<a href="#">Help</a> |
 	</nav>
+  <div class="clear"></div>
 </header>
 <nav id="mainnav">
-  <div id="face"><img src=""></div>
+  <div id="face"><img src="images/tx.png"></div>
   <ul>
   	<li>
   		<a href="">Tasks</a>
@@ -42,10 +43,11 @@
   	</li>
   </ul>
   <form action="">
-  	<input type="search" placeholder="Employee | Position | Unit | Task | Menu" />
-  	<input type="submit" />
+  	<input type="search" id="keyword" namd="keyword" placeholder="Employee | Position | Unit | Task | Menu" />
+  	<input type="submit" value="" />
   </form>
   <span></span>
+  <div class="clear"></div>
 </nav>
 	<div class="wrapper">
     <aside>
@@ -55,7 +57,7 @@
       </header>
     	<nav>
     		<ul>
-    			<li>
+    			<li class="active">
     				<a href="">Competence Model</a>
     				<span></span>
     			</li>
