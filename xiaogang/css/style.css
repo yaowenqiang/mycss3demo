@@ -24,4 +24,7 @@ header#main nav a{color:#ffffff;text-decoration:none;margin:5px;}
 .wrapper aside nav ul li:hover a{color:#000000;}
 .wrapper aside nav ul li.active a{color:#000000;}
 .wrapper aside nav ul li a{color:#ffffff;text-decoration:none;}
+.wrapper .maincontent{float:left;}
+.wrapper .maincontent ul li{padding:5px;float:left;list-style-type:none;width:71px;height:61px;margin:0 5px;text-align:center;}
+.wrapper .maincontent ul li:hover{width:69px;height:59px;background:#fafafa;border:1px solid #cccccc;border-radius:5px;}
 
