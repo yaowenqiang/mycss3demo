@@ -25,6 +25,24 @@ header#main nav a{color:#ffffff;text-decoration:none;margin:5px;}
 .wrapper aside nav ul li.active a{color:#000000;}
 .wrapper aside nav ul li a{color:#ffffff;text-decoration:none;}
 .wrapper .maincontent{float:left;}
-.wrapper .maincontent ul li{padding:5px;float:left;list-style-type:none;width:71px;height:61px;margin:0 5px;text-align:center;}
-.wrapper .maincontent ul li:hover{width:69px;height:59px;background:#fafafa;border:1px solid #cccccc;border-radius:5px;}
-
+.wrapper .maincontent nav#toolbar{border-bottom:1px solid #dfdfdf;}
+.wrapper .maincontent nav ul li{padding:5px;float:left;list-style-type:none;width:71px;height:61px;margin:0 5px;text-align:center;}
+.wrapper .maincontent nav ul li:hover{width:69px;height:59px;background:#fafafa;border:1px solid #cccccc;border-radius:5px;}
+.wrapper .maincontent #mailinfo{height:24px;line-height:24px;border-top:1px solid #ffffff;font-size:14PX;}
+.wrapper .maincontent #mailinfo a{color:#6f71be;text-decoration:none;}
+.wrapper .maincontent #infolist{height:24px;line-height:24px;}
+.wrapper .maincontent #infolist a{display:block;float:left;border:1px solid #cccccc;color:#333;padding:0 10px;text-decoration:none;}
+.wrapper .maincontent table{border:1px solid #cbcbcb;width:93%;border-collapse:collapse;}
+.wrapper .maincontent table tr{height:24px;line-height:24px;
+border-top:1px solid #fbfbfb;
+border-bottom:1px solid #dfdfdf;
+}
+.wrapper .maincontent table tr:nth-of-type(odd){ background:#f1f1f1;
+}
+.wrapper .maincontent table tr:nth-of-type(even){background:#ffffff;}
+.wrapper .maincontent table tr.header{height:24px;line-height:24px;}
+.wrapper .maincontent table tr.header td{margin:0 5px;}
+.wrapper .maincontent table tr.header td:nth-child(1){width:10px;background:url(../images/bg.png) 5px -115px no-repeat;}
+.wrapper .maincontent table tr.header td:nth-child(2){width:10px;background:url(../images/bg.png) -15px -115px no-repeat;}
+.wrapper .maincontent table tr.header td:nth-child(3){width:10px;background:url(../images/bg.png) -30px -115px no-repeat;}
+.wrapper .maincontent table tr.header td:nth-child(4){width:10px;background:url(../images/bg.png) -30px -115px no-repeat;}
