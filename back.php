@@ -62,7 +62,7 @@ $params = array(	//构造请求参数
 	?>
 <?php
 $host = 'https://graph.qq.com/relation/get_fanslist?';
-$host. = $access_key;
+$host = $host.$access_key;
 $params = array(
 // 'access_key' 		 => $client_id,
 'oauth_consumer_key' => $client_id,
