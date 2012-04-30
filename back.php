@@ -35,7 +35,7 @@ $params = array(	//构造请求参数
 		$(function(){
 			$('#submtiBtn').click(function(){
 				$.ajax({
-					type:'post',
+					type:'POST',
 					url:'https://graph.qq.com/t/add_t',
 					data:{
 						content:''+new Date()	
