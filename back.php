@@ -13,12 +13,9 @@ $params = array(	//构造请求参数
 	$result = file($requestUrl);
 	list($access_key,$expire_time) = explode('&',$result[0]);
 	echo 'access key:';
-	var_dump($access_key);
 	$getOpenIDUrl = 'https://graph.qq.com/oauth2.0/me'.'?'.$access_key;
-	var_dump($getOpenIDUrl);
 	$getOpenIdResult = file($getOpenIDUrl);
-	// var_dump($access_key);
-	var_dump($getOpenIDUrl);
+	var_dump($getOpenIdResult);
 }
 
 ?>
