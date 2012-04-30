@@ -12,10 +12,11 @@ $params = array(	//构造请求参数
 	$requestUrl = $remoteUrl.'?'.http_build_query($params);
 	$result = file($requestUrl);
 	list($access_key,$expire_time) = explode('&',$result[0]);
-	echo 'access key:';
 	$getOpenIDUrl = 'https://graph.qq.com/oauth2.0/me'.'?'.$access_key;
 	$getOpenIdResult = file($getOpenIDUrl);
 	var_dump($getOpenIdResult);
-}
+	$callback = json_decode($getOpenIdResult);
+	var_dump($callback);
 
+}
 ?>
