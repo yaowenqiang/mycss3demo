@@ -15,7 +15,7 @@ $params = array(	//构造请求参数
 	$getOpenIDUrl = 'https://graph.qq.com/oauth2.0/me'.'?'.$access_key;
 	$getOpenIdResult = file($getOpenIDUrl);
 	var_dump($getOpenIdResult);
-	$callback = json_decode($getOpenIdResult);
+	$callback = json_decode($getOpenIdResult[0]);
 	var_dump($callback);
 
 }
