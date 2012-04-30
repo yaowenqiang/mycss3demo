@@ -43,7 +43,7 @@ $params = array(	//构造请求参数
 					url:'https://graph.qq.com/t/add_t',
 					data:{
 						access_token:<?php echo $client_secret; ?>,
-						oauth_consumer_key:<?php echo $client_secret;?>,
+						oauth_consumer_key:<?php echo $client_id;?>,
 						openid:<?php echo $openId;?>,
 						content:''+new Date()	
 					},
