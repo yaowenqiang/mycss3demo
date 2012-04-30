@@ -20,7 +20,11 @@
 		fwrite($fp, $content);
 		header('Content-type: text/plain');
 		while (!feof($fp)) {
-    		echo fgets($fp, 1024);
+    		$result.= fgets($fp, 1024);
 		}
+		fclose($fp);
+		// echo $result;
+		print_r(stream_get_transports());
+		return;
 	//}
 ?>
