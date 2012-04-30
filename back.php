@@ -18,7 +18,7 @@ $params = array(	//构造请求参数
 	var_dump($getOpenIDUrl);
 	$getOpenIdResult = file($getOpenIDUrl);
 	// var_dump($access_key);
-	// var_dump($getOpenIDUrl);
+	var_dump($getOpenIDUrl);
 }
 
 ?>
