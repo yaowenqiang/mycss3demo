@@ -11,8 +11,8 @@ $params = array(	//构造请求参数
 );
 	$requestUrl = $remoteUrl.'?'.http_build_query($params);
 	var_dump($requestUrl);
-	// $result = file($requestUrl);
-	// var_dump($result);
+	$result = file($requestUrl);
+	var_dump($result);
 	// header('location:'.'?'.$requestUrl);
 	// ($remoteUrl);
 }else {
