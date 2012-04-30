@@ -2,7 +2,8 @@
 	// if ($_SERVER[ 'POST' == 'REQUEST_METHOD']) {
 		// code...
 		ini_set('display_errors','stderr');
-		$remoteDir = 'https://graph.qq.com/t/add_t';
+		// $remoteDir = 'https://graph.qq.com/t/add_t';
+		$remoteDir = 'graph.qq.com/t/add_t';
 		$params=array(
 			'access_token' => $_POST['access_token'],
 			'oauth_consumer_key' => $_POST['oauth_consumer_key'],
