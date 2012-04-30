@@ -14,14 +14,8 @@ $params = array(	//构造请求参数
 	list($access_key,$expire_time) = explode('&',$result);
 	$getOpenIDUrl = 'https://graph.qq.com/oauth2.0/me'.'?'.$access_key;
 	$getOpenIdResult = file_get_contents($getOpenIDUrl);
-	var_dump($getOpenIdResult);
-	// $callback = explode(':',$getOpenIdResult);
-	$callback = $getOpenIdResult;
-	$a = explode(':',strtr('"','',$callback));
-	$b = explode(',',$a[1]);
-	var_dump($a);
-	var_dump($b);
-	var_dump($callback);
-
+	$result = explode(')',strtr($getOpenIdResult,'(',')'));
+	$resultObject = json_decode($result);
+	var_dump($resultObject);
 }
 ?>
