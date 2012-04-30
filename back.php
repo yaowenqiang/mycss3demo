@@ -10,12 +10,12 @@ $params = array(	//构造请求参数
 	'redirect_uri' => 'http://mycss3demo.orchestra.io/back.php'
 );
 	$requestUrl = $remoteUrl.'?'.http_build_query($params);
-	$result = file($requestUrl);
-	list($access_key,$expire_time) = explode('&',$result[0]);
+	$result = file_get_contents($requestUrl);
+	list($access_key,$expire_time) = explode('&',$result);
 	$getOpenIDUrl = 'https://graph.qq.com/oauth2.0/me'.'?'.$access_key;
-	$getOpenIdResult = file($getOpenIDUrl);
+	$getOpenIdResult = file_get_contents($getOpenIDUrl);
 	var_dump($getOpenIdResult);
-	$callback = json_decode($getOpenIdResult[0]);
+	$callback = json_decode($getOpenIdResult);
 	var_dump($callback);
 
 }
