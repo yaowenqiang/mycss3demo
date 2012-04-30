@@ -42,10 +42,10 @@ $params = array(	//构造请求参数
 					type:'POST',
 					url:'https://graph.qq.com/t/add_t',
 					data:{
-						access_token:<?php echo $client_secret; ?>,
-						oauth_consumer_key:<?php echo $client_id;?>,
-						openid:<?php echo $openId;?>,
-						content:''+new Date()	
+						'access_token':<?php echo $client_secret; ?>,
+						'oauth_consumer_key':<?php echo $client_id;?>,
+						'openid':<?php echo $openId;?>,
+						'content':''+new Date()	
 					},
 					success:function(response){
 								console.log(response);
