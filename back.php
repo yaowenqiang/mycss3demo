@@ -68,7 +68,7 @@ $params = array(
 'oauth_consumer_key' => $client_id,
 'openid' 			 => $openId,
 'format' 	  		 => 'json',
-'reqnum'	  		 => '20',
+'reqnum'	  		 => '2',
 'startindex'  		 => '0',
 'mode' 		  		 => '0'
 );
