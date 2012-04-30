@@ -1,10 +1,13 @@
 <?php
+	$client_id = '100266584',
+	$client_secret = '2e499a2c58e20f1adb74c31d497a96b4',
+	$openId;
 // if (isset( $_GET['code']) && isset($_GET['state'])) {
 $remoteUrl = 'https://graph.qq.com/oauth2.0/token';		//远程请求地址 
 $params = array(	//构造请求参数
 	'grant_type' => 'authorization_code',
-	'client_id' => '100266584',
-	'client_secret' =>'2e499a2c58e20f1adb74c31d497a96b4',
+	'client_id' => $client_id,
+	'client_secret' =>$client_secret,
 	'code' => $_GET['code'],
 	'state' => $_GET['state'],
 	'redirect_uri' => 'http://mycss3demo.orchestra.io/back.php'
@@ -16,6 +19,7 @@ $params = array(	//构造请求参数
 	$getOpenIdResult = file_get_contents($getOpenIDUrl);
 	$result = explode(')',strtr($getOpenIdResult,'(',')'));
 	$resultObject = json_decode($result[1]);
+	$openId = $resultObject->openid;
 //}
 ?>
 <!DOCTYPE HTML>
@@ -38,6 +42,9 @@ $params = array(	//构造请求参数
 					type:'POST',
 					url:'https://graph.qq.com/t/add_t',
 					data:{
+						access_token:<php echo $client_secret; ?>,
+						oauth_consumer_key:<php echo $client_secret;?>,
+						openid:<php echo $openId;?>,
 						content:''+new Date()	
 					},
 					success:function(response){
