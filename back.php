@@ -82,7 +82,7 @@ $requestURL = $host.'?'.http_build_query($params);
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-			$('getfans').click(function(){
+			$('#getfans').click(function(){
 				$.getJSON('<?php echo $requestURL;?>&jsoncallback=a');	
 			});			
 	});
