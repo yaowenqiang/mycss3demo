@@ -17,8 +17,10 @@ $params = array(	//构造请求参数
 	var_dump($getOpenIdResult);
 	// $callback = explode(':',$getOpenIdResult);
 	$callback = $getOpenIdResult;
-	$a = explode(',',(explode(':',$callback)[1]));
+	$a = explode(':',strtr('"','',$callback));
+	$b = explode(',',$a[2]);
 	var_dump($a);
+	var_dump($b);
 	var_dump($callback);
 
 }
