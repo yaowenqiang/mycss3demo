@@ -43,6 +43,7 @@ $params = array(	//构造请求参数
 								console.log(response);
 					}
 				});	
+			return false;
 			});			
 		});	
 	</script>
