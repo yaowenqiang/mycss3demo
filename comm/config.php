@@ -37,15 +37,18 @@ include_once("session.php");
  */
 //申请到的appid
 //$_SESSION["appid"]    = yourappid; 
-$_SESSION["appid"]    = 222222; 
+$_SESSION["appid"]    = 100266584; 
 
 //申请到的appkey
 //$_SESSION["appkey"]   = "yourappkey"; 
-$_SESSION["appkey"]   = "005831692a444765a0db25a4a5ac052c"; 
-
+//$_SESSION["appkey"]   = "005831692a444765a0db25a4a5ac052c"; 
+$_SESSION['appkey']     = "2e499a2c58e20f1adb74c31d497a96b4";    
 //QQ登录成功后跳转的地址,请确保地址真实可用，否则会导致登录失败。
 //$_SESSION["callback"] = "http://your domain/oauth/get_access_token.php"; 
-$_SESSION["callback"] = "http://redfox.oauth.com/oauth/qq_callback.php";
+//$_SESSION["callback"] = "http://localhost/qq/oauth/qq_callback.php";
+$_SESSION["callback"] = "http://mycss3demo.orchestra.io/back.php";
+
+
 
 //QQ授权api接口.按需调用
 $_SESSION["scope"] = "get_user_info,add_share,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo";
