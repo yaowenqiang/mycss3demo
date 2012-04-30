@@ -11,7 +11,7 @@ $params = array(	//构造请求参数
 );
 	$requestUrl = $remoteUrl.'?'.http_build_query($params);
 	$result = file($requestUrl);
-	list($access_key,$expire_time) = explode('&',$result);
+	list($access_key,$expire_time) = explode('&',$result[0]);
 	var_dump($access_key);
 
 }
