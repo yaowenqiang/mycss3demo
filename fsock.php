@@ -1,9 +1,13 @@
 <?php
 	// if ($_SERVER[ 'POST' == 'REQUEST_METHOD']) {
 		// code...
-		ini_set('display_errors','stderr');
+		// ini_set('display_errors','stderr');
 		// $remoteDir = 'https://graph.qq.com/t/add_t';
-		$remoteDir = 'graph.qq.com/t/add_t';
+		$result;
+		$port = 80 | 443;
+		$host = 'graph.qq.com/t/add_t';
+		$method = 'POST' | 'GET';
+		$contenttype = 'text/html' | 'text/plain' | 'text/xml';
 		$params=array(
 			'access_token' => $_POST['access_token'],
 			'oauth_consumer_key' => $_POST['oauth_consumer_key'],
@@ -11,10 +15,15 @@
 			'format' => $_POST['format'],
 			'content' => $_POST['content']
 		);
-		$fp = fsockopen($remoteDir,80);
+		if ($port == 443) {
+			$sshhost = 'ssl://'.$host;
+		} else {
+			$sshhost = $host;
+		}
+		$fp = fsockopen($sshhost,$port);
 		$content = http_build_query($params);
 		fwrite($fp, "POST /reposter.php HTTP/1.1\r\n");
-		fwrite($fp, "Host: example.com\r\n");
+		fwrite($fp, "Host: $host\r\n");
 		fwrite($fp, "Content-Type: application/x-www-form-urlencoded\r\n");
 		fwrite($fp, "Content-Length: ".strlen($content)."\r\n");
 		fwrite($fp, "Connection: close\r\n");
