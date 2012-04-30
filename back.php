@@ -1,5 +1,5 @@
 <?php
-if (isset( $_GET['code']) && isset($_GET['state'])) {
+// if (isset( $_GET['code']) && isset($_GET['state'])) {
 $remoteUrl = 'https://graph.qq.com/oauth2.0/token';		//远程请求地址 
 $params = array(	//构造请求参数
 	'grant_type' => 'authorization_code',
@@ -16,6 +16,35 @@ $params = array(	//构造请求参数
 	$getOpenIdResult = file_get_contents($getOpenIDUrl);
 	$result = explode(')',strtr($getOpenIdResult,'(',')'));
 	$resultObject = json_decode($result[1]);
-	var_dump($resultObject);
-}
+//}
 ?>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<form action="">
+		<textarea id="t" name="t" rows="10" cols="30"></textarea>		
+		<input type="subject" id="" value="发一条微博吧！" />
+	</form>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$().click(function(){
+				$.ajax({
+					method:'post',
+					url:'https://graph.qq.com/t/add_t',
+					data:{
+						content:''+new Date();	
+					},
+					success:function(response){
+								console.log(response);
+					}
+				});	
+			});			
+		});	
+	</script>
+</body>
+</html>
