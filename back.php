@@ -15,7 +15,10 @@ $params = array(	//构造请求参数
 	$getOpenIDUrl = 'https://graph.qq.com/oauth2.0/me'.'?'.$access_key;
 	$getOpenIdResult = file_get_contents($getOpenIDUrl);
 	var_dump($getOpenIdResult);
-	$callback = explode(':',$getOpenIdResult);
+	// $callback = explode(':',$getOpenIdResult);
+	$callback = $getOpenIdResult;
+	$a = explode(',',(explode(':',$callback)[1]));
+	var_dump($a);
 	var_dump($callback);
 
 }
