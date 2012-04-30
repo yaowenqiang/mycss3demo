@@ -2,7 +2,7 @@
 <html lang="en">
 <meta property="qc:admins" content="341076627333345576723053421617" />
 <script type="text/javascript"
-src="http://qzonestyle.gtimg.cn/qzone/openapi/qc.js#appId=APPID" charset="utf-8"></script> 
+src="http://qzonestyle.gtimg.cn/qzone/openapi/qc.js#appId=100266584" charset="utf-8"></script> 
 <head>
 	<meta charset="UTF-8">
 	<?php
