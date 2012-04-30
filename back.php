@@ -27,17 +27,17 @@ $params = array(	//构造请求参数
 <body>
 	<form action="">
 		<textarea id="t" name="t" rows="10" cols="30"></textarea>		
-		<input type="subject" id="" value="发一条微博吧！" />
+		<input type="submit" id="submtiBtn" value="发一条微博吧！" />
 	</form>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$().click(function(){
+			$('#submtiBtn').click(function(){
 				$.ajax({
 					method:'post',
 					url:'https://graph.qq.com/t/add_t',
 					data:{
-						content:''+new Date();	
+						content:''+new Date()	
 					},
 					success:function(response){
 								console.log(response);
