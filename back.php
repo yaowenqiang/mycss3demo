@@ -1,4 +1,5 @@
 <?php
+/*
 if (isset( $_GET['code']) && isset($_GET['state'])) {
 $remoteUrl = 'https://graph.qq.com/oauth2.0/token';		//远程请求地址 
 $params = array(	//构造请求参数
@@ -15,4 +16,6 @@ $params = array(	//构造请求参数
 }else {
 	var_dump($_GET);
 }
+*/
+	var_dump($_GET);
 ?>
