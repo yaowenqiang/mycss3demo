@@ -84,12 +84,9 @@ $requestURL = $host.'&'.http_build_query($params);
 <script type="text/javascript">
 	$(function() {
 			$('#getfans').click(function(){
-				$.getJSON('<?php echo $requestURL;?>&jsoncallback=a');	
+				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',function(data){console.log(data);});	
 			});			
 	});
-function a(users){
-	console.log(users);
-}
 </script>
 </body>
 </html>
