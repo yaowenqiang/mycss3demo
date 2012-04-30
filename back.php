@@ -40,7 +40,7 @@ $params = array(	//构造请求参数
 			$('#submtiBtn').click(function(){
 				$.ajax({
 					type:'POST',
-					url:'https://graph.qq.com/t/add_t',
+					url:'fsock.php',
 					data:{
 						'access_token': '<?php echo $client_id; ?>',
 						'oauth_consumer_key': '<?php echo $client_secret;?>',
