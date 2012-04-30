@@ -10,7 +10,7 @@ $params = array(	//构造请求参数
 	'redirect_uri' => 'http://mycss3demo.orchestra.io/back.php'
 );
 	$requestUrl = $remoteUrl.http_build_query($params);
-	header('location:'.$remoteUrl);
+	header('location:'.$requestUrl);
 	// ($remoteUrl);
 }else {
 	var_dump($_GET);
