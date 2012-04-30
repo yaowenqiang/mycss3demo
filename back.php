@@ -26,9 +26,11 @@ $params = array(	//构造请求参数
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>我的听众</title>
 </head>
 <body>
+	<?php 
+	/*
 	<form action="">
 		<textarea id="t" name="t" rows="10" cols="30"></textarea>		
 		<!-- <input type="submit" id="submtiBtn" value="发一条微博吧！" /> -->
@@ -56,5 +58,37 @@ $params = array(	//构造请求参数
 			});			
 		});	
 	</script>
+	*/
+	?>
+<?php
+$host = 'https://graph.qq.com/relation/get_fanslist';
+$params = array(
+'access_key' 		 => $client_id,
+'oauth_consumer_key' => $client_secret,
+'openid' 			 => $openId,
+'format' 	  		 => 'json',
+'reqnum'	  		 => '20',
+'startindex'  		 => '0',
+'mode' 		  		 => '0'
+);
+$requestURL = $host.'?'.http_build_query($params);
+?>
+<a href="#" id ='getfans'>获取我的听众</a>
+<br />
+<br />
+<ul id='fanslist'>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+			$('getfans').click(function(){
+				$.getJSON(<?php echo $requestURL;?>+'&jsoncallback=a');	
+			});			
+	});
+function a(users){
+	console.log(users);
+}
+</script>
 </body>
 </html>
