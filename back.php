@@ -61,10 +61,10 @@ $params = array(	//构造请求参数
 	*/
 	?>
 <?php
-$host = 'https://graph.qq.com/relation/get_fanslist';
+$host = 'https://graph.qq.com/relation/get_fanslist?';
+$host. = $access_key;
 $params = array(
 // 'access_key' 		 => $client_id,
-'access_key' 		 => $access_key,
 'oauth_consumer_key' => $client_id,
 'openid' 			 => $openId,
 'format' 	  		 => 'json',
@@ -72,7 +72,7 @@ $params = array(
 'startindex'  		 => '0',
 'mode' 		  		 => '0'
 );
-$requestURL = $host.'?'.http_build_query($params);
+$requestURL = $host.'&'.http_build_query($params);
 ?>
 <a href="#" id ='getfans'>获取我的听众</a>
 <br />
