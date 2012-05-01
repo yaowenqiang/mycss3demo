@@ -99,6 +99,7 @@ $jsoninfo = json_encode($info);
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
+	/*
 	function a(data) {alert(data)}
 	$(function(){
 		$('#getfans').click(function(){
@@ -121,6 +122,22 @@ $jsoninfo = json_encode($info);
 			}
 		});	
 	});
+	*/
+
+$(document).ready(function()
+{
+$.getJSON("http://9lessons.net63.net/9lessons_json.php?count=5&jsoncall=?",function(data)
+{
+$.each(data.posts, function(i,data)
+{
+var jsondata ="<li>"+data.message+"</li>";
+// $(jsondata).appendTo("ol#9lessons");
+consloe.log(jsondata);
+});
+}
+);
+return false;
+});
 </script>
 </body>
 </html>
