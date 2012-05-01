@@ -125,8 +125,7 @@ $jsoninfo = json_encode($info);
 	*/
 
 $(document).ready(function()
-{
-$.getJSON("http://9lessons.net63.net/9lessons_json.php?count=5&jsoncall=?",function(data)
+$.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncall=?",function(data)
 {
 $.each(data.posts, function(i,data)
 {
