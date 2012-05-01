@@ -114,7 +114,7 @@ $jsoninfo = json_encode($info);
 	users = <?php echo $jsoninfo;?>;
 	users = JSON.parse(users);
 		$.each(users.data.info,function(i,item){
-			if ( item.city_code = myself.data.city_code ) {
+			if ( item.city_code == myself.data.city_code ) {
 				$('<li>').html("姓名："+item.name+' 呢称：'+item.nick+" 所在地："+item.location).appendTo('#fanslist');	
 			}
 		});	
