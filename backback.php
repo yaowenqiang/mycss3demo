@@ -29,10 +29,42 @@ $params = array(	//构造请求参数
 	<title>我的听众</title>
 </head>
 <body>
+	<?php 
+	/*
+	<form action="">
+		<textarea id="t" name="t" rows="10" cols="30"></textarea>		
+		<!-- <input type="submit" id="submtiBtn" value="发一条微博吧！" /> -->
+		<a href="#" id="submtiBtn">发一条微博吧！</a>
+	</form>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#submtiBtn').click(function(){
+				$.ajax({
+					type:'POST',
+					url:'fsock.php',
+					data:{
+						'access_token': '<?php echo $client_id; ?>',
+						'oauth_consumer_key': '<?php echo $client_secret;?>',
+						'openid':'<?php echo $openId;?>',
+						'format':'json',
+						'content':''+new Date()	
+					},
+					success:function(response){
+								console.log(response);
+					}
+				});	
+			return false;
+			});			
+		});	
+	</script>
+	*/
+	?>
 <?php
 $getinfohost = 'https://graph.qq.com/user/get_info';
 $getinfohost = $getinfohost.'?'.$access_key;
 $params = array(
+// 'access_key' 		 => $client_id,
 'oauth_consumer_key' => $client_id,
 'openid' 			 => $openId,
 'format' 	  		 => 'json'
@@ -40,9 +72,11 @@ $params = array(
 $getinfoRequestURL = $getinfohost.'&'.http_build_query($params);
 $myinfo = file_get_contents($getinfoRequestURL);
 $myjsoninfo = json_encode($myinfo);
+
 $host = 'https://graph.qq.com/relation/get_fanslist?';
 $host = $host.$access_key;
 $params = array(
+// 'access_key' 		 => $client_id,
 'oauth_consumer_key' => $client_id,
 'openid' 			 => $openId,
 'format' 	  		 => 'json',
@@ -66,16 +100,64 @@ $jsoninfo = json_encode($info);
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src='jqueryajax.js'></script>
 <script type="text/javascript">
+	/*
+	function a(data) {alert(data)}
+	$(function(){
+		$('#getfans').click(function(){
+			$.getJSON('<?php echo $requestURL;?>&jsoncall=?','a');
+		});
+		$('#getmyinfo').click(function(){
+				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncal=?',
+					function(data) {
+						$('<li>').html('mycitycode:'+data.data.city_code).appendTo('#myinfo');	
+				});	
+			}		
+		);			
+	myself = <?php echo $myjsoninfo;?>;
+	myself = JSON.parse(myself);
+	users = <?php echo $jsoninfo;?>;
+	users = JSON.parse(users);
+		$.each(users.data.info,function(i,item){
+			if ( item.city_code == myself.data.city_code ) {
+				$('<li>').html("姓名："+item.name+' 呢称：'+item.nick+" 所在地："+item.location).appendTo('#fanslist');	
+			}
+		});	
+	});
+*/
+
 $(document).ready(function(){
+		/*
+$.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncall=?",function(data)
+{
+	$.each(data.posts, function(i,data)
+	{
+	var jsondata ="<li>"+data.message+"</li>";
+// $(jsondata).appendTo("ol#9lessons");
+		console.log(jsondata);
+	});
+}
+);
+*/
+//qq
+/*
+$.getJSON("<?php echo $requestURL;?>&jsoncall=?",function(data)
+{
+	// $.each(data.posts, function(i,data)
+	//{
+	// var jsondata ="<li>"+data.message+"</li>";
+// $(jsondata).appendTo("ol#9lessons");
+		console.log(data);
+	//});
+}
+);
+
+//qq
+return false;
+*/
 $.ajax({
 	url:'<?php echo $requestURL;?>',
 	type:'GET',
-	success:function(res){
-		respontext = res.responseText;
-		console.log(respontext);
-		records = JSON.decode(a[5]);
-		console.log(records);
-	)}
+	success:function(res){alert(res.responseText)}
 })
 });
 </script>
