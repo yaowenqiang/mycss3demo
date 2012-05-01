@@ -101,7 +101,7 @@ $jsoninfo = json_encode($info);
 <script type="text/javascript">
 	$(function(){
 		$('#getfans').click(function(){
-			$.getJSON('<?php echo $requestURL;?>&jsoncall=?',function(data){$.each(function(i,item){$('<li>').html(item.tweet[0].text).appendTo('#fanslist');})});
+			$.getJSON('<?php echo $requestURL;?>&jsoncall=?',function(data){console.log(data)});
 		});
 		$('#getmyinfo').click(function(){
 				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncal=?',
