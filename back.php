@@ -125,6 +125,7 @@ $jsoninfo = json_encode($info);
 */
 
 $(document).ready(function(){
+		/*
 $.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncall=?",function(data)
 {
 	$.each(data.posts, function(i,data)
@@ -135,6 +136,7 @@ $.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncal
 	});
 }
 );
+*/
 //qq
 
 $.getJSON("<?php echo $requestURL;?>&jsoncall=?",function(data)
