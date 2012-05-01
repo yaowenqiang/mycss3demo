@@ -82,16 +82,17 @@ $requestURL = $host.'&'.http_build_query($params);
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
-	$(function() {
+	$(function(){
 		$('#getfans').click(function(){
-			$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
-				function(data){
-					$.each(data.data.info,function(i,item) {
+				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
+					function(data) {
+					$.each(data.data.info,function(i,item){
 						$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
-					});
-				}
-			);	
-		});			
+					});	
+				});	
+			}		
+		);			
+			
 	});
 </script>
 </body>
