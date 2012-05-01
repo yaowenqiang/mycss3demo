@@ -72,7 +72,6 @@ $params = array(
 $getinfoRequestURL = $getinfohost.'&'.http_build_query($params);
 $myinfo = file_get_contents($getinfoRequestURL);
 $myjsoninfo = json_encode($myinfo);
-var_dump($myjsoninfo);
 
 $host = 'https://graph.qq.com/relation/get_fanslist?';
 $host = $host.$access_key;
@@ -110,10 +109,14 @@ $jsoninfo = json_encode($info);
 			}		
 		);			
 		*/	
+	myself = <?php echo $myjsoninfo;?>;
+	myself = JSON.parse(myself);
 	users = <?php echo $jsoninfo;?>;
 	users = JSON.parse(users);
 		$.each(users.data.info,function(i,item){
-			$('<li>').html("姓名："+item.name+' 呢称：'+item.nick+" 所在地："+item.location).appendTo('#fanslist');	
+			if ( item.city_code = my.data.city_code ) {
+				$('<li>').html("姓名："+item.name+' 呢称：'+item.nick+" 所在地："+item.location).appendTo('#fanslist');	
+			}
 		});	
 	});
 </script>
