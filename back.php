@@ -131,7 +131,7 @@ $.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncal
 	{
 	var jsondata ="<li>"+data.message+"</li>";
 // $(jsondata).appendTo("ol#9lessons");
-		consloe.log(jsondata);
+		console.log(jsondata);
 	});
 }
 );
