@@ -113,7 +113,7 @@ $jsoninfo = json_encode($info);
 					function(data) {
 						$('<li>').html('mycitycode:'+data.data.city_code).appendTo('#myinfo');	
 				});	
-			};		
+			}		
 		);			
 	myself = <?php echo $myjsoninfo;?>;
 	myself = JSON.parse(myself);
