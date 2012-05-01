@@ -135,6 +135,20 @@ $.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncal
 	});
 }
 );
+//qq
+
+$.getJSON("<?php echo $requestURL;?>&jsoncall=?",function(data)
+{
+	// $.each(data.posts, function(i,data)
+	//{
+	// var jsondata ="<li>"+data.message+"</li>";
+// $(jsondata).appendTo("ol#9lessons");
+		console.log(data);
+	//});
+}
+);
+
+//qq
 return false;
 });
 </script>
