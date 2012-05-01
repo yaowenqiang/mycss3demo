@@ -66,17 +66,15 @@ $jsoninfo = json_encode($info);
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src='jqueryajax.js'></script>
 <script type="text/javascript">
-$(document).ready(function(){
+$(function(){
 $.ajax({
 	url:'<?php echo $requestURL;?>',
 	type:'GET',
 	success:function(res){
-		respontext = res.responseText;
-		console.log(respontext);
-		records = JSON.decode(a[5]);
-		console.log(records);
-	)}
-})
+			console.log(res.responseText)
+		}
+	});	
+
 });
 </script>
 </body>
