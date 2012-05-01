@@ -74,9 +74,7 @@ $params = array(
 );
 $requestURL = $host.'&'.http_build_query($params);
 $info = file_get_contents($requestURL);
-var_dump($info);
 $jsoninfo = json_encode($info);
-var_dump($jsoninfo);
 ?>
 <a href="#" id ='getfans'>获取我的听众</a>
 <br />
@@ -87,6 +85,7 @@ var_dump($jsoninfo);
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+			/*
 		$('#getfans').click(function(){
 				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
 					function(data) {
@@ -96,7 +95,11 @@ var_dump($jsoninfo);
 				});	
 			}		
 		);			
-			
+		*/	
+	users = JSON.parse('<?php echo $jsoninfo;?>');
+		$.each(users.data.info,function(i,item){
+			$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
+		});	
 	});
 </script>
 </body>
