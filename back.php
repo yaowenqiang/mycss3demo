@@ -98,6 +98,7 @@ $jsoninfo = json_encode($info);
 </ul>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src='jqueryajax.js'></script>
 <script type="text/javascript">
 	/*
 	function a(data) {alert(data)}
@@ -138,7 +139,7 @@ $.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncal
 );
 */
 //qq
-
+/*
 $.getJSON("<?php echo $requestURL;?>&jsoncall=?",function(data)
 {
 	// $.each(data.posts, function(i,data)
@@ -152,6 +153,12 @@ $.getJSON("<?php echo $requestURL;?>&jsoncall=?",function(data)
 
 //qq
 return false;
+*/
+$.ajax({
+	url:'<?php echo $requestURL;?>',		
+	type:'GET',
+	success:functon(response){alert(response);}
+});
 });
 </script>
 </body>
