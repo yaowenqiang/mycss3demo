@@ -61,6 +61,19 @@ $params = array(	//构造请求参数
 	*/
 	?>
 <?php
+$getinfohost = 'https://graph.qq.com/user/get_info';
+$getinfohost = $getinfohost.$access_key;
+$params = array(
+// 'access_key' 		 => $client_id,
+'oauth_consumer_key' => $client_id,
+'openid' 			 => $openId,
+'format' 	  		 => 'json'
+)
+$getinfoRequestURL = $getinfohost.'&'.http_build_query($params);
+$myinfo = file_get_contents($getinfoRequestURL);
+$myjsoninfo = json_encode($myinfo);
+var_dump($myjsoninfo);
+
 $host = 'https://graph.qq.com/relation/get_fanslist?';
 $host = $host.$access_key;
 $params = array(
@@ -75,6 +88,7 @@ $params = array(
 $requestURL = $host.'&'.http_build_query($params);
 $info = file_get_contents($requestURL);
 $jsoninfo = json_encode($info);
+
 ?>
 <a href="#" id ='getfans'>获取我的听众</a>
 <br />
@@ -99,7 +113,7 @@ $jsoninfo = json_encode($info);
 	users = <?php echo $jsoninfo;?>;
 	users = JSON.parse(users);
 		$.each(users.data.info,function(i,item){
-			$('<li>').html("姓名："+item.name+' 呢称：'+item.nick+"所在地："+item.location).appendTo('#fanslist');	
+			$('<li>').html("姓名："+item.name+' 呢称：'+item.nick+" 所在地："+item.location).appendTo('#fanslist');	
 		});	
 	});
 </script>
