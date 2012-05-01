@@ -89,16 +89,17 @@ $info = file_get_contents($requestURL);
 $jsoninfo = json_encode($info);
 
 ?>
+<a href="#" id ='getmyinfo'>获取我的个人资料</a>
 <a href="#" id ='getfans'>获取我的听众</a>
 <br />
 <br />
+<ul id='myinfo'></ul>
 <ul id='fanslist'>
 </ul>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-			/*
 		$('#getfans').click(function(){
 				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
 					function(data) {
@@ -106,9 +107,15 @@ $jsoninfo = json_encode($info);
 						$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
 					});	
 				});	
-			}		
+			};		
+		$('#getmyinfo').click(function(){
+				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncallback=?',
+					function(data) {
+						$('<li>').html('mycitycode:'+data.data.city_code).appendTo('#fanslist');	
+				});	
+			};		
+
 		);			
-		*/	
 	myself = <?php echo $myjsoninfo;?>;
 	myself = JSON.parse(myself);
 	users = <?php echo $jsoninfo;?>;
