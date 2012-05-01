@@ -38,7 +38,7 @@ $params = array(
 'format' 	  		 => 'json'
 );
 $getinfoRequestURL = $getinfohost.'&'.http_build_query($params);
-$myinfo = file_get_contents($getinfoRequestURL);
+// $myinfo = file_get_contents($getinfoRequestURL);
 $myjsoninfo = json_encode($myinfo);
 $host = 'https://graph.qq.com/relation/get_fanslist?';
 $host = $host.$access_key;
@@ -46,13 +46,13 @@ $params = array(
 'oauth_consumer_key' => $client_id,
 'openid' 			 => $openId,
 'format' 	  		 => 'json',
-'reqnum'	  		 => '20',
+'reqnum'	  		 => '2',
 'startindex'  		 => '0',
 'mode' 		  		 => '0'
 );
 $requestURL = $host.'&'.http_build_query($params);
-$info = file_get_contents($requestURL);
-$jsoninfo = json_encode($info);
+// $info = file_get_contents($requestURL);
+// $jsoninfo = json_encode($info);
 
 ?>
 <a href="#" id ='getmyinfo'>获取我的个人资料</a>
@@ -73,7 +73,6 @@ $.ajax({
 	success:function(res){
 			data = (res.responseText);
 			userrecords = JSON.parse($(data).text());
-			console.log(userrecords);
 		}
 	});	
 
