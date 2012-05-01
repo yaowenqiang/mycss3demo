@@ -87,6 +87,7 @@ $requestURL = $host.'&'.http_build_query($params);
 				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
 					function(data){
 						data = JSON.stringify($data);
+						$('#fanslist').html();
 						return data;
 					});	
 			});			
