@@ -155,10 +155,10 @@ $.getJSON("<?php echo $requestURL;?>&jsoncall=?",function(data)
 return false;
 */
 $.ajax({
-	url:'<?php echo $requestURL;?>',		
+	url:'<?php echo $requestURL;?>',
 	type:'GET',
-	success:functon(response){alert(response)}
-});
+	success:function(res){alert(res.responseText)}
+})
 });
 </script>
 </body>
