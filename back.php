@@ -111,7 +111,7 @@ $jsoninfo = json_encode($info);
 		$('#getmyinfo').click(function(){
 				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncallback=?',
 					function(data) {
-						$('<li>').html('mycitycode:'+data.data.city_code).appendTo('#fanslist');	
+						$('<li>').html('mycitycode:'+data.data.city_code).appendTo('#myinfo');	
 				});	
 			};		
 
