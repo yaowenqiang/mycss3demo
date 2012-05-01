@@ -107,7 +107,7 @@ $jsoninfo = json_encode($info);
 						$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
 					});	
 				});	
-			};		
+			});		
 		$('#getmyinfo').click(function(){
 				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncallback=?',
 					function(data) {
