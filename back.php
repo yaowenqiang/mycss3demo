@@ -73,6 +73,10 @@ $params = array(
 'mode' 		  		 => '0'
 );
 $requestURL = $host.'&'.http_build_query($params);
+$info = file_get_contents($requestURL);
+var_dump($info);
+$jsoninfo = json_encode($info);
+var_dump($jsoninfo);
 ?>
 <a href="#" id ='getfans'>获取我的听众</a>
 <br />
