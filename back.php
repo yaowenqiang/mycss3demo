@@ -101,7 +101,7 @@ $jsoninfo = json_encode($info);
 <script type="text/javascript">
 	$(function(){
 		$('#getfans').click(function(){
-				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
+				$.getJSON('<?php echo $requestURL;?>&jsoncall=?',
 					function(data) {
 					$.each(data.data.info,function(i,item){
 						$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
@@ -109,7 +109,7 @@ $jsoninfo = json_encode($info);
 				});	
 			});		
 		$('#getmyinfo').click(function(){
-				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncallback=?',
+				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncal=?',
 					function(data) {
 						$('<li>').html('mycitycode:'+data.data.city_code).appendTo('#myinfo');	
 				});	
