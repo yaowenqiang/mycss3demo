@@ -86,9 +86,9 @@ $requestURL = $host.'&'.http_build_query($params);
 			$('#getfans').click(function(){
 				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
 					function(data){
-						data = JSON.stringify($data);
-						$('#fanslist').html();
-						return data;
+					$.each(data.data.info,function(i,item) {
+						$('<li>').html(item.tweet[0]).appendTo('#fanslist');	
+					});
 					});	
 			});			
 	});
