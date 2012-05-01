@@ -157,7 +157,7 @@ return false;
 $.ajax({
 	url:'<?php echo $requestURL;?>',		
 	type:'GET',
-	success:functon(response){alert(response);}
+	success:functon(response){alert(response)}
 });
 });
 </script>
