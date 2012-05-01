@@ -97,6 +97,7 @@ $jsoninfo = json_encode($info);
 		);			
 		*/	
 	users = <?php echo $jsoninfo;?>;
+	users = JSON.parse(users);
 		$.each(users.data.info,function(i,item){
 			$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
 		});	
