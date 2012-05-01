@@ -99,7 +99,7 @@ $jsoninfo = json_encode($info);
 	users = <?php echo $jsoninfo;?>;
 	users = JSON.parse(users);
 		$.each(users.data.info,function(i,item){
-			$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
+			$('<li>').html("姓名："+item.name+' 呢称：'+item.nick+"所在地："+info.location).appendTo('#fanslist');	
 		});	
 	});
 </script>
