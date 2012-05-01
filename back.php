@@ -71,7 +71,9 @@ $.ajax({
 	url:'<?php echo $requestURL;?>',
 	type:'GET',
 	success:function(res){
-			console.log(res.responseText)
+			data = (res.responseText);
+			userrecords = JSON.parse($(data).text());
+			console.log(userrecords);
 		}
 	});	
 
