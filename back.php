@@ -122,17 +122,17 @@ $jsoninfo = json_encode($info);
 			}
 		});	
 	});
-	*/
+*/
 
-$(document).ready(function()
+$(document).ready(function(){
 $.getJSON("http://demos.9lessons.info/9lessons_json.php?count=10?count=5&jsoncall=?",function(data)
 {
-$.each(data.posts, function(i,data)
-{
-var jsondata ="<li>"+data.message+"</li>";
+	$.each(data.posts, function(i,data)
+	{
+	var jsondata ="<li>"+data.message+"</li>";
 // $(jsondata).appendTo("ol#9lessons");
-consloe.log(jsondata);
-});
+		consloe.log(jsondata);
+	});
 }
 );
 return false;
