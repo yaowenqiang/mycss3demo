@@ -87,10 +87,11 @@ $requestURL = $host.'&'.http_build_query($params);
 				$.getJSON('<?php echo $requestURL;?>&jsoncallback=?',
 					function(data){
 					$.each(data.data.info,function(i,item) {
-						$('<li>').html(item.tweet[0]).appendTo('#fanslist');	
+						$('<li>').html(item.tweet[0].text).appendTo('#fanslist');	
 					});
-					});	
-			});			
+					);	
+				}
+				});			
 	});
 </script>
 </body>
