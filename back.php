@@ -99,9 +99,10 @@ $jsoninfo = json_encode($info);
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
+	function a(data) {alert(data)}
 	$(function(){
 		$('#getfans').click(function(){
-			$.getJSON('<?php echo $requestURL;?>&jsoncall=?',function(data){console.log(data)});
+			$.getJSON('<?php echo $requestURL;?>&jsoncall=?','a');
 		});
 		$('#getmyinfo').click(function(){
 				$.getJSON('<?php echo $getinfoRequestURL;?>&jsoncal=?',
