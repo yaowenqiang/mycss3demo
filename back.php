@@ -62,7 +62,7 @@ $params = array(	//构造请求参数
 	?>
 <?php
 $getinfohost = 'https://graph.qq.com/user/get_info';
-$getinfohost = $getinfohost.$access_key;
+$getinfohost = $getinfohost.'?'.$access_key;
 $params = array(
 // 'access_key' 		 => $client_id,
 'oauth_consumer_key' => $client_id,
