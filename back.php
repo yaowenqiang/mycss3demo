@@ -68,7 +68,7 @@ $params = array(
 'oauth_consumer_key' => $client_id,
 'openid' 			 => $openId,
 'format' 	  		 => 'json'
-)
+);
 $getinfoRequestURL = $getinfohost.'&'.http_build_query($params);
 $myinfo = file_get_contents($getinfoRequestURL);
 $myjsoninfo = json_encode($myinfo);
