@@ -150,8 +150,8 @@ function getfans()
 				fans = JSON.parse($(data).text());
 				$.each(fans.data.info,function(i,item){
 					if(item.city_code == userinfo.data.city_code){
-						// $('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
-						findfans.push(item.nick);
+						$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+						// findfans.push(item.nick);
 					}
 				});
 				if (fans.data.hasnext) {
