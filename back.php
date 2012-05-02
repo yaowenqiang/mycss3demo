@@ -103,17 +103,15 @@
 				request = '<?php echo $requestURL;?>';
 				var flag=1;
 				var page=1;
-				while(page < 10){
+				while(page < 3){
 				startindex=20*(page -1);
 				url = request+'&startindex='+startindex;
 				console.log(url);
-				/*
 				$.ajax({
-					url:request+'&startindex='+startindex,
+					url:url,
 					// data:{startindex:20*(page - 1)},
 					type:'GET',
 					success:function(res){
-							console.log(page);
 							data = (res.responseText);
 							fans = JSON.parse($(data).text());
 							<!-- fansinfo = []; -->
@@ -129,7 +127,6 @@
 						}
 
 				});	
-				*/
 				page++;
 				}
 				$('#loading').hide();
