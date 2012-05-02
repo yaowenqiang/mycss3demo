@@ -118,7 +118,7 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							if(fans.hasnext){
+							if(fans.data.hasnext){
 								window.flag = 1;	
 							}
 						}
