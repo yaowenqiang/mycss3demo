@@ -30,6 +30,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>我的听众</title>
+		<style type="text/css">
+			body{background:url(../images/ajax-loader.gif) 50% 50% no-repeat}	
+		</style>
 	</head>
 	<body>
 	<?php
@@ -70,7 +73,7 @@
 	$(function(){
 			var userinfo;
 		//获取个人信息
-			$('#getmyinfo').click(function(){
+			// $('#getmyinfo').click(function(){
 				$.ajax({
 					url:'<?php echo $getinfoRequestURL;?>',
 					type:'GET',
@@ -81,7 +84,7 @@
 
 						}
 				});	
-			});
+			//});
 		//获取听众列表
 			$('#getfans').click(function(){
 				$.ajax({
@@ -90,6 +93,7 @@
 					success:function(res){
 							data = (res.responseText);
 							funs = JSON.parse($(data).text());
+							funsinfo = [];
 							$.each(funs.data.info,function(i,item){
 								if(item.city_code == userinfo.data.city_code){
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
