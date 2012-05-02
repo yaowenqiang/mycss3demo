@@ -82,7 +82,7 @@
 	$(function(){
 			var page = 0;
 			var userinfo;
-			var hasnext=1;
+			// var hasnext=1;
 		//获取个人信息
 			// $('#getmyinfo').click(function(){
 				$.ajax({
@@ -100,7 +100,7 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
-				while(1){
+				while(page <=3){
 				$.ajax({
 					url:'<?php echo $requestURL;?>',
 					data:{startindex:20*(page - 1)},
@@ -115,12 +115,8 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							hasnext = fans.hasnext;
 						}
 				});	
-					if (!hasnext) {
-						break;
-					}
 				}
 				$('#loading').hide();
 			});
