@@ -80,7 +80,7 @@
 	<script type="text/javascript" src='jqueryajax.js'></script>
 	<script type="text/javascript">
 	$(function(){
-			var page = 1;
+			// var page = 1;
 			var userinfo;
 			// var hasnext=1;
 		//获取个人信息
@@ -101,6 +101,7 @@
 			$('#getfans').click(function(){
 				$('#loading').show();
 				var flag=1;
+				var page=1;
 				while(page <=3){
 				startindex=20*(page -1);
 				$.ajax({
