@@ -62,14 +62,14 @@
 		'openid' 			 => APP_ID,
 		'format' 	  		 => 'json',
 		'reqnum'	  		 => '20',
-		'startindex'  		 => '0',
+		// 'startindex'  		 => '0',
 		'mode' 		  		 => '0'
 	);
 	$requestURL = $host.'&'.http_build_query($params);
 	// $info = file_get_contents($requestURL);
 	// $jsoninfo = json_encode($info);
 	?>
-	<a href="#" id ='getmyinfo'>获取我的个人资料</a>
+	<!-- <a href="#" id ='getmyinfo'>获取我的个人资料</a> -->
 	<a href="#" id ='getfans'>获取我的听众</a>
 	<br />
 	<br />
@@ -80,6 +80,7 @@
 	<script type="text/javascript" src='jqueryajax.js'></script>
 	<script type="text/javascript">
 	$(function(){
+			var page = 0;
 			var userinfo;
 		//获取个人信息
 			// $('#getmyinfo').click(function(){
@@ -98,21 +99,28 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
+				while(1){
 				$.ajax({
 					url:'<?php echo $requestURL;?>',
+					data:{startindex:20*(page - 1)}
 					type:'GET',
 					success:function(res){
-							$('#loading').hide();
+							page++;
 							data = (res.responseText);
-							funs = JSON.parse($(data).text());
-							funsinfo = [];
-							$.each(funs.data.info,function(i,item){
+							fans = JSON.parse($(data).text());
+							<!-- fansinfo = []; -->
+							$.each(fans.data.info,function(i,item){
 								if(item.city_code == userinfo.data.city_code){
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
+							if (!funs.hasnext) {
+								break;
+							}
 						}
 				});	
+				}
+				$('#loading').hide();
 			});
 	});
 	</script>
