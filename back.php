@@ -29,9 +29,11 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/min.css" />
+		<link rel="stylesheet" href="../css/style.css" />
 		<title>我的听众</title>
-		<style type="text/css">
-			body{background:url(../images/ajax-loader.gif) 50% 50% no-repeat}	
+		<!-- <style type="text/css"> -->
+		<!-- 	body{background:url(../images/ajax-loader.gif) 50% 50% no-repeat}	 -->
 		</style>
 	</head>
 	<body>
