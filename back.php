@@ -105,7 +105,6 @@
 				while(1){
 				startindex=20*(page -1);
 				url = request+'&startindex='+startindex;
-				console.log(url);
 				$.ajax({
 					url:url,
 					// data:{startindex:20*(page - 1)},
@@ -119,13 +118,12 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							console.log(fans);
 							if(fans.data.hasnext){
-								window.flag = 0;	
+								window.flag = 1;	
 							}
 						}
 				});	
-				if(!window.flag){
+				if(window.flag){
 					break;
 				}
 				page++;
