@@ -118,7 +118,7 @@
 							hasnext = fans.hasnext;
 						}
 				});	
-					if (!fans.hasnext) {
+					if (!hasnext) {
 						break;
 					}
 				}
