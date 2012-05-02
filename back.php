@@ -79,8 +79,10 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src='jqueryajax.js'></script>
 	<script type="text/javascript">
+	var page = 1;
+	var request = '<?php echo $requestURL;?>';
+	var findfans=[];
 	$(function(){
-			// var page = 1;
 			var userinfo;
 			// var hasnext=1;
 		//获取个人信息
@@ -100,11 +102,8 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
-				request = '<?php echo $requestURL;?>';
-				var page=1;
 				// startindex=20*(page -1); -->
 				// var url = request+'&startindex='+startindex; 
-				var findfans=[];
 				getfans();
 				<!-- while(1){ -->
 				<!-- startindex=20*(page -1); -->
