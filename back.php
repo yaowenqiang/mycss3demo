@@ -100,6 +100,7 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
+				var flag=1;
 				while(page <=3){
 				startindex=20*(page -1);
 				$.ajax({
@@ -116,6 +117,9 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
+							if(!fans.data.hasnext){
+								flag = 0;	
+							}
 						}
 				});	
 				}
