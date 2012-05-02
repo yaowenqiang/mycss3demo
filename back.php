@@ -116,9 +116,9 @@
 							});
 						}
 				});	
-				if (!funs.hasnext) {
-					break;
-				}
+					if (!fans.hasnext) {
+						break;
+					}
 				}
 				$('#loading').hide();
 			});
