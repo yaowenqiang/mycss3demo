@@ -114,11 +114,11 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							if (!funs.hasnext) {
-								break;
-							}
 						}
 				});	
+				if (!funs.hasnext) {
+					break;
+				}
 				}
 				$('#loading').hide();
 			});
