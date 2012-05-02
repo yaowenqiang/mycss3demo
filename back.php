@@ -102,7 +102,7 @@
 				while(1){
 				$.ajax({
 					url:'<?php echo $requestURL;?>',
-					data:{startindex:20*(page - 1)}
+					data:{startindex:20*(page - 1)},
 					type:'GET',
 					success:function(res){
 							page++;
