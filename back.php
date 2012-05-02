@@ -31,6 +31,16 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../css/min.css" />
 		<!-- <link rel="stylesheet" href="../css/style.css" /> -->
+		<style type="text/css">
+			#loading{
+				display:absolute;
+				left:100px;
+				top:100px;
+				width:54px;
+				height:55px;
+				background:url(../images/ajax-loader.gif) no-repeat;
+			}
+		</style>
 		<title>我的听众</title>
 	</head>
 	<body>
