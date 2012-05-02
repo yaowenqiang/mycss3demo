@@ -69,7 +69,7 @@
 	<script type="text/javascript">
 	$(function(){
 		//获取个人信息
-			$('getmyinfo').click(function(){
+			$('#getmyinfo').click(function(){
 				$.ajax({
 					url:'<?php echo $getinfoRequestURL;?>',
 					type:'GET',
