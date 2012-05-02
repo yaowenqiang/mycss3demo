@@ -32,9 +32,6 @@
 		<link rel="stylesheet" href="../css/min.css" />
 		<link rel="stylesheet" href="../css/style.css" />
 		<title>我的听众</title>
-		<!-- <style type="text/css"> -->
-		<!-- 	body{background:url(../images/ajax-loader.gif) 50% 50% no-repeat}	 -->
-		</style>
 	</head>
 	<body>
 	<?php
@@ -80,6 +77,7 @@
 					url:'<?php echo $getinfoRequestURL;?>',
 					type:'GET',
 					success:function(res){
+							$('#loading').hide();
 							data = (res.responseText);
 							userinfo = JSON.parse($(data).text());
 							$('<li>').html('姓名：'+userinfo.data.nick).appendTo('#myinfo');
@@ -89,10 +87,12 @@
 			//});
 		//获取听众列表
 			$('#getfans').click(function(){
+				$('#loading').show();
 				$.ajax({
 					url:'<?php echo $requestURL;?>',
 					type:'GET',
 					success:function(res){
+							$('#loading').hide();
 							data = (res.responseText);
 							funs = JSON.parse($(data).text());
 							funsinfo = [];
@@ -106,5 +106,6 @@
 			});
 	});
 	</script>
+	<div id="loading"></div>
 	</body>
 </html>
