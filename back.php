@@ -68,6 +68,7 @@
 	<script type="text/javascript" src='jqueryajax.js'></script>
 	<script type="text/javascript">
 	$(function(){
+			var userinfo;
 		//获取个人信息
 			$('#getmyinfo').click(function(){
 				$.ajax({
