@@ -82,6 +82,8 @@
 	var page = 1;
 	var request = '<?php echo $requestURL;?>';
 	var findfans=[];
+	var fans;
+	var fanstimer;
 	$(function(){
 			var userinfo;
 			// var hasnext=1;
@@ -140,7 +142,6 @@ function getfans()
 	startindex=20*(page -1); 
 	url = request+'&startindex='+startindex; 
 	console.log(url);
-	/*
 	$.ajax({
 		url:url,
 		type:'GET',
@@ -153,12 +154,17 @@ function getfans()
 						findfans.push(item.nick);
 					}
 				});
+				if (fans.data.hasnext) {
+					clearTimeout(fanstimer);
+				}else {
+					page ++;
+				}
 			}
 	});	
-	*/
-	page++;
 	console.log(findfans);
-	setTimeout(getfans,100);
+	if (!fanstimer) {
+		fanstimer = setTimeout(getfans,100);
+	}
 }
 	</script>
 	<div id="loading"></div>
