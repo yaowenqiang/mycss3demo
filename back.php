@@ -103,8 +103,11 @@
 				request = <?php echo $requestURL;?>;
 				var flag=1;
 				var page=1;
-				while(page){
+				while(page < 10){
 				startindex=20*(page -1);
+				url = request+'&startindex='+startindex;
+				console.log(url);
+				/*
 				$.ajax({
 					url:request+'&startindex='+startindex,
 					// data:{startindex:20*(page - 1)},
@@ -126,6 +129,7 @@
 						}
 
 				});	
+				*/
 				page++;
 				}
 				$('#loading').hide();
