@@ -120,12 +120,12 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							if(!fans.data.hasnext){
-								//flag = 0;	
-								page=0;
-							}
+							page = 3;
+							// if(!fans.data.hasnext){
+							// 	//flag = 0;	
+							// 	page=0;
+							// }
 						}
-				page = 3;
 				});	
 				page++;
 				}
