@@ -1,2 +1,9 @@
-#loading{display:absolute;left:100px;top:100px;width:54px;height:55px;background:url(../images/ajax-loader.gif) no-repeat}
+#loading{
+	display:absolute;
+	left:100px;
+	top:100px;
+	width:54px;
+	height:55px;
+	background:url(../images/ajax-loader.gif) no-repeat;
+}
 
