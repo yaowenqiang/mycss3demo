@@ -118,15 +118,16 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							if(fans.data.hasnext){
+							if(fans.hasnext){
 								window.flag = 1;	
 							}
 						}
 				});	
-				if(window.flag){
+				if(window.flag == 1){
 					break;
+				}else {
+					page++;
 				}
-				page++;
 				}
 				$('#loading').hide();
 			});
