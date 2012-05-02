@@ -102,7 +102,7 @@
 				$('#loading').show();
 				var flag=1;
 				var page=1;
-				while(page <=3){
+				while(flag){
 				startindex=20*(page -1);
 				$.ajax({
 					url:'<?php echo $requestURL;?>'+'&startindex='+startindex,
@@ -110,6 +110,7 @@
 					type:'GET',
 					success:function(res){
 							page++;
+							console.log(page);
 							data = (res.responseText);
 							fans = JSON.parse($(data).text());
 							<!-- fansinfo = []; -->
