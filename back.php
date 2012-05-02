@@ -80,7 +80,7 @@
 	<script type="text/javascript" src='jqueryajax.js'></script>
 	<script type="text/javascript">
 	$(function(){
-			var page = 0;
+			var page = 1;
 			var userinfo;
 			// var hasnext=1;
 		//获取个人信息
