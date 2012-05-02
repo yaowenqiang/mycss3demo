@@ -100,7 +100,7 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
-				while(page <=3){
+				// while(page <=3){
 				$.ajax({
 					url:'<?php echo $requestURL;?>',
 					data:{startindex:20*(page - 1)},
@@ -117,7 +117,7 @@
 							});
 						}
 				});	
-				}
+				//}
 				$('#loading').hide();
 			});
 	});
