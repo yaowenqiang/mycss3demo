@@ -105,7 +105,7 @@
 				// startindex=20*(page -1); -->
 				// var url = request+'&startindex='+startindex; 
 				var findfans=[];
-				getfans(url);
+				getfans();
 				<!-- while(1){ -->
 				<!-- startindex=20*(page -1); -->
 				<!-- url = request+'&startindex='+startindex; -->
