@@ -100,16 +100,16 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
+				request = <?php echo $requestURL;?>;
 				var flag=1;
 				var page=1;
-				while(flag){
+				while(page){
 				startindex=20*(page -1);
 				$.ajax({
-					url:'<?php echo $requestURL;?>'+'&startindex='+startindex,
+					url:request+'&startindex='+startindex,
 					// data:{startindex:20*(page - 1)},
 					type:'GET',
 					success:function(res){
-							page++;
 							console.log(page);
 							data = (res.responseText);
 							fans = JSON.parse($(data).text());
@@ -120,10 +120,13 @@
 								}
 							});
 							if(!fans.data.hasnext){
-								flag = 0;	
+								//flag = 0;	
+								page=0;
 							}
 						}
+
 				});	
+				page++;
 				}
 				$('#loading').hide();
 			});
