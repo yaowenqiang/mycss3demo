@@ -82,6 +82,7 @@
 	$(function(){
 			var page = 0;
 			var userinfo;
+			var hasnext=1;
 		//获取个人信息
 			// $('#getmyinfo').click(function(){
 				$.ajax({
@@ -114,6 +115,7 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
+							hasnext = fans.hasnext;
 						}
 				});	
 					if (!fans.hasnext) {
