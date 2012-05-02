@@ -120,7 +120,10 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
+							console.log(page);
 							page = 3;
+							console.log(page);
+
 							// if(!fans.data.hasnext){
 							// 	//flag = 0;	
 							// 	page=0;
