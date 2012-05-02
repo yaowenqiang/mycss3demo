@@ -101,8 +101,8 @@
 			$('#getfans').click(function(){
 				$('#loading').show();
 				// while(page <=3){
+				startindex=20*(page -1);
 				$.ajax({
-					startindex=20*(page -1);
 					url:'<?php echo $requestURL;?>'+'&startindex='+startindex,
 					// data:{startindex:20*(page - 1)},
 					type:'GET',
