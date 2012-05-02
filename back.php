@@ -49,7 +49,7 @@
 		'oauth_consumer_key' => APP_KEY,
 		'openid' 			 => APP_ID,
 		'format' 	  		 => 'json',
-		'reqnum'	  		 => '2',
+		'reqnum'	  		 => '20',
 		'startindex'  		 => '0',
 		'mode' 		  		 => '0'
 	);
@@ -90,7 +90,9 @@
 							data = (res.responseText);
 							funs = JSON.parse($(data).text());
 							$.each(funs.data.info,function(i,item){
-								$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+								if(item.city_code == userinfo.data.city_code){
+									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+								}
 							});
 						}
 				});	
