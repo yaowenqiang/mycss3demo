@@ -76,7 +76,7 @@
 					success:function(res){
 							data = (res.responseText);
 							userinfo = JSON.parse($(data).text());
-							$('<li>').html('姓名：'+userinfo.date.nick).appendTo('#myinfo');
+							$('<li>').html('姓名：'+userinfo.data.nick).appendTo('#myinfo');
 
 						}
 				});	
