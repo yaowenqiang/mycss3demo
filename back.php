@@ -84,8 +84,8 @@
 	var findfans=[];
 	var fans;
 	var fanstimer;
+	var userinfo;
 	$(function(){
-			var userinfo;
 			// var hasnext=1;
 		//获取个人信息
 			// $('#getmyinfo').click(function(){
@@ -161,7 +161,7 @@ function getfans()
 				}
 			}
 	});	
-	console.log(findfans);
+	console.dir(findfans);
 	if (!fanstimer) {
 		fanstimer = setTimeout(getfans,100);
 	}
