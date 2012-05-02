@@ -101,7 +101,6 @@
 			$('#getfans').click(function(){
 				$('#loading').show();
 				request = '<?php echo $requestURL;?>';
-				var flag=1;
 				var page=1;
 				while(page < 3){
 				startindex=20*(page -1);
@@ -120,15 +119,12 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							// if(!fans.data.hasnext){
-							// 	//flag = 0;	
-							// 	page=0;
-							// }
+							if(!fans.data.hasnext){
+								window.flag = 0;	
+							}
 						}
 				});	
-				console.log(fans);
-				if(!fans.data.hasnext){
-					//flag = 0;	
+				if(!window.flag){
 					break;
 				}
 				page++;
