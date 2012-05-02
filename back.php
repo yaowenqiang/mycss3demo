@@ -102,36 +102,59 @@
 				$('#loading').show();
 				request = '<?php echo $requestURL;?>';
 				var page=1;
-				while(1){
-				startindex=20*(page -1);
-				url = request+'&startindex='+startindex;
-				$.ajax({
-					url:url,
-					// data:{startindex:20*(page - 1)},
-					type:'GET',
-					success:function(res){
-							data = (res.responseText);
-							fans = JSON.parse($(data).text());
-							<!-- fansinfo = []; -->
-							$.each(fans.data.info,function(i,item){
-								if(item.city_code == userinfo.data.city_code){
-									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
-								}
-							});
-							if(fans.data.hasnext){
-								window.flag = 1;	
-							}
-						}
-				});	
-				if(window.flag == 1){
-					break;
-				}else {
-					page++;
-				}
-				}
+				var url = request+'&startindex='+startindex; 
+				var findfans=[];
+				getfans(url);
+				<!-- while(1){ -->
+				<!-- startindex=20*(page -1); -->
+				<!-- url = request+'&startindex='+startindex; -->
+				<!-- $.ajax({ -->
+				<!-- 	url:url, -->
+				<!-- 	// data:{startindex:20*(page - 1)}, -->
+				<!-- 	type:'GET', -->
+				<!-- 	success:function(res){ -->
+				<!-- 			data = (res.responseText); -->
+				<!-- 			fans = JSON.parse($(data).text()); -->
+				<!-- 			<!-- fansinfo = []; --> -->
+				<!-- 			$.each(fans.data.info,function(i,item){ -->
+				<!-- 				if(item.city_code == userinfo.data.city_code){ -->
+				<!-- 					$('<li>').html('姓名：'+item.nick).appendTo('#fanslist'); -->
+				<!-- 				} -->
+				<!-- 			}); -->
+				<!-- 			if(fans.data.hasnext){ -->
+				<!-- 				window.flag = 1;	 -->
+				<!-- 			} -->
+				<!-- 		} -->
+				<!-- });	 -->
+				<!-- if(window.flag == 1){ -->
+				<!-- 	break; -->
+				<!-- }else { -->
+				<!-- 	page++; -->
+				<!-- } -->
+				<!-- } -->
 				$('#loading').hide();
 			});
 	});
+function getfans(url)
+{
+	$.ajax({
+		url:url,
+		type:'GET',
+		success:function(res){
+				data = (res.responseText);
+				fans = JSON.parse($(data).text());
+				$.each(fans.data.info,function(i,item){
+					if(item.city_code == userinfo.data.city_code){
+						$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+						findfans[]  = item.nick;
+					}
+				});
+			}
+	});	
+	page++;
+	console.log(findfans);
+	setTimeout(getfans,100);
+}
 	</script>
 	<div id="loading"></div>
 	</body>
