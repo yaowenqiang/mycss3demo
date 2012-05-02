@@ -86,11 +86,12 @@
 		//获取个人信息
 			// $('#getmyinfo').click(function(){
 				$.ajax({
-					url:'<?php echo $getinfoRequestURL;?>',
+					startindex=20*(page -1);
+					url:'<?php echo $getinfoRequestURL;?>'+'&startindex'+startindex,
 					type:'GET',
 					success:function(res){
 							$('#loading').hide();
-							data = (res.responseText);
+							// data = (res.responseText);
 							userinfo = JSON.parse($(data).text());
 							$('<li>').html('姓名：'+userinfo.data.nick).appendTo('#myinfo');
 
