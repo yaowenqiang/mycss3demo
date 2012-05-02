@@ -69,14 +69,17 @@
 	<script type="text/javascript">
 	$(function(){
 		//获取个人信息
-		$.ajax({
-			url:'<?php echo $getinfoRequestURL;?>',
-			type:'GET',
-			success:function(res){
-					data = (res.responseText);
-					userrecords = JSON.parse($(data).text());
-				}
-		});	
+			$('getmyinfo').click(function(){
+				$.ajax({
+					url:'<?php echo $getinfoRequestURL;?>',
+					type:'GET',
+					success:function(res){
+							data = (res.responseText);
+							userinfo = JSON.parse($(data).text());
+							console.log(userinfo);
+						}
+				});	
+			});
 		//获取听众列表
 		$.ajax({
 			url:'<?php echo $requestURL;?>',
