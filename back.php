@@ -68,6 +68,16 @@
 	<script type="text/javascript" src='jqueryajax.js'></script>
 	<script type="text/javascript">
 	$(function(){
+		//获取个人信息
+		$.ajax({
+			url:'<?php echo $getinfoRequestURL;?>',
+			type:'GET',
+			success:function(res){
+					data = (res.responseText);
+					userrecords = JSON.parse($(data).text());
+				}
+		});	
+		//获取听众列表
 		$.ajax({
 			url:'<?php echo $requestURL;?>',
 			type:'GET',
