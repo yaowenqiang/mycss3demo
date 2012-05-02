@@ -30,7 +30,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../css/min.css" />
-		<link rel="stylesheet" href="../css/style.css" />
+		<!-- <link rel="stylesheet" href="../css/style.css" /> -->
 		<title>我的听众</title>
 	</head>
 	<body>
