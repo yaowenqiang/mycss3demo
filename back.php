@@ -82,14 +82,19 @@
 				});	
 			});
 		//获取听众列表
-		$.ajax({
-			url:'<?php echo $requestURL;?>',
-			type:'GET',
-			success:function(res){
-					data = (res.responseText);
-					userrecords = JSON.parse($(data).text());
-				}
-		});	
+			$('#getfans').click(function(){
+				$.ajax({
+					url:'<?php echo $requestURL;?>',
+					type:'GET',
+					success:function(res){
+							data = (res.responseText);
+							funs = JSON.parse($(data).text());
+							$.each(funs.data.info,function(i,item){
+								$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+							});
+						}
+				});	
+			});
 	});
 	</script>
 	</body>
