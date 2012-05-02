@@ -102,7 +102,8 @@
 				$('#loading').show();
 				request = '<?php echo $requestURL;?>';
 				var page=1;
-				var url = request+'&startindex='+startindex; 
+				// startindex=20*(page -1); -->
+				// var url = request+'&startindex='+startindex; 
 				var findfans=[];
 				getfans(url);
 				<!-- while(1){ -->
@@ -135,8 +136,12 @@
 				$('#loading').hide();
 			});
 	});
-function getfans(url)
+function getfans()
 {
+	startindex=20*(page -1); -->
+	url = request+'&startindex='+startindex; 
+	console.log(url);
+	/*
 	$.ajax({
 		url:url,
 		type:'GET',
@@ -151,6 +156,7 @@ function getfans(url)
 				});
 			}
 	});	
+	*/
 	page++;
 	console.log(findfans);
 	setTimeout(getfans,100);
