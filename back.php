@@ -102,7 +102,7 @@
 				$('#loading').show();
 				request = '<?php echo $requestURL;?>';
 				var page=1;
-				while(page < 3){
+				while(1){
 				startindex=20*(page -1);
 				url = request+'&startindex='+startindex;
 				console.log(url);
@@ -120,7 +120,7 @@
 								}
 							});
 							console.log(fans);
-							if(!fans.data.hasnext){
+							if(fans.data.hasnext){
 								window.flag = 0;	
 							}
 						}
