@@ -100,7 +100,7 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
-				request = <?php echo $requestURL;?>;
+				request = '<?php echo $requestURL;?>';
 				var flag=1;
 				var page=1;
 				while(page < 10){
