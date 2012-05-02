@@ -119,7 +119,7 @@
 									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
 								}
 							});
-							console.log(fnas);
+							console.log(fans);
 							if(!fans.data.hasnext){
 								window.flag = 0;	
 							}
