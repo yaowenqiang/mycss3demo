@@ -107,6 +107,7 @@
 				// startindex=20*(page -1); -->
 				// var url = request+'&startindex='+startindex; 
 				getfans();
+				<?php
 				<!-- while(1){ -->
 				<!-- startindex=20*(page -1); -->
 				<!-- url = request+'&startindex='+startindex; -->
@@ -134,14 +135,14 @@
 				<!-- 	page++; -->
 				<!-- } -->
 				<!-- } -->
-				$('#loading').hide();
+				*/
+				?>
 			});
 	});
 function getfans()
 {
 	startindex=20*(page -1); 
 	url = request+'&startindex='+startindex; 
-	console.log(url);
 	$.ajax({
 		url:url,
 		type:'GET',
@@ -155,6 +156,7 @@ function getfans()
 					}
 				});
 				if (fans.data.hasnext) {
+					$('#loading').hide();
 					clearTimeout(fanstimer);
 				}else {
 					page ++;
