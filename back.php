@@ -105,11 +105,17 @@
                 }
         });	
         $('#send').click(function(){
+			var yql_base_uri = "http://query.yahooapis.com/v1/yql";  
+			var requesturl = '<?php echo SEND_T_URL;?>';
         	var params={};
         	params.content = Date();
         	params.oauth_consumer_key = '<?php echo APP_KEY;?>';
         	params.access_token = '<?php echo $access_token;?>';
-        	params.client_id = '<?php echo APP_KEY;?>;
+        	params.client_id = '<?php echo APP_KEY;?>';
+			postdata = toQueryString(params);
+			var sql = "select * from htmlpost where url='"+requesturl+"' and
+			postdata='"+postdata+"' and xpath=*"+;
+        	// var queryString = 
         	//querystrin = ToqueryStrin(params);
         	/*
        		$.ajax({
@@ -168,6 +174,36 @@
                 fanstimer = setTimeout(getfans,10000);
             }
         }
+
+// This utility function creates the query string
+// to be appended to the base URI of the YQL Web
+// service.
+function toQueryString(obj) {    
+  var parts = [];    
+  for(var each in obj) if (obj.hasOwnProperty(each)) {
+    parts.push(encodeURIComponent(each) + '=' + encodeURIComponent(obj[each]));    
+  }    
+  return parts.join('&');  
+}
+
+// Store the anonymous function that wraps
+// the OpenSocial function makeRequest
+var runQuery = function(ws_base_uri,query, handler) {
+  gadgets.io.makeRequest(ws_base_uri, handler, {
+    METHOD: 'POST',
+    POST_DATA: toQueryString({q: query, format: 'json'}),
+    CONTENT_TYPE: 'JSON',
+    AUTHORIZATION: 'OAuth'    
+  });  
+};
+
+// Callback function for handling response data
+function handler(rsp) {   
+  if(rsp.data){           
+    yql_results = rsp.data;
+  }
+}
+
 	</script>
 	<div id="loading"></div>
 	</body>
