@@ -114,7 +114,7 @@
         	params.client_id = '<?php echo APP_KEY;?>';
 			postdata = toQueryString(params);
 			var sql = "select * from htmlpost where url='"+requesturl+"' and
-			postdata='"+postdata+"' and xpath=*"+;
+			postdata='"+postdata+"' and xpath ='*'";
         	// var queryString = 
         	//querystrin = ToqueryStrin(params);
         	/*
