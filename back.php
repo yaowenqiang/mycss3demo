@@ -155,9 +155,9 @@ function getfans()
 				});
                 //如果后面无记录
 				if (fans.data.hasnext) {
+                    stop = 1;
 					$('#loading').hide();
 					clearTimeout(fanstimer);
-                    stop = 1;
 				}else {
 					page ++;
 				}
@@ -165,7 +165,7 @@ function getfans()
 	});	
     console.log(stop);
 	if (!stop) {
-		fanstimer = setTimeout(getfans,100);
+		fanstimer = setTimeout(getfans,10000);
 	}
 }
 	</script>
