@@ -104,14 +104,14 @@
                     $('<li>').html('姓名：'+userinfo.data.nick).appendTo('#myinfo');
                 }
         });	
-        $().click(function(){
+        $('#send').click(function(){
        		$.ajax({
        			type:'POST',
        			url:'<?php echo SEND_T_URL;?>',
        			data:{
 				'oauth_consumer_key':'<?php echo APP_KEY;?>',
 				'access_token':'<?php echo $access_token;?>',
-				'client_id':'<?php echo APP_KEY;?>
+				'client_id':'<?php echo APP_KEY;?>'
        			},
        			success:function(response){console.log(response)}
        		}); 	
