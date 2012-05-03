@@ -105,13 +105,12 @@
                 }
         });	
         $('#send').click(function(){
-        	var params={
-        			'content':Date(),
-					'oauth_consumer_key : '<?php echo APP_KEY;?>',
-					'access_token' : '<?php echo $access_token;?>',
-					'client_id' : '<?php echo APP_KEY;?>'
-        		},
-        	querystrin = ToqueryStrin(params);
+        	var params={};
+        	params.content = Date();
+        	params.oauth_consumer_key = '<?php echo APP_KEY;?>';
+        	params.access_token = '<?php echo $access_token;?>';
+        	params.client_id = '<?php echo APP_KEY;?>;
+        	//querystrin = ToqueryStrin(params);
         	/*
        		$.ajax({
        			type:'POST',
