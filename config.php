@@ -11,4 +11,6 @@
 	define('GET_INFO_URL','https://graph.qq.com/user/get_info');
 	//听众列表请求地址
 	define('GET_FANSLIST_URL','https://graph.qq.com/relation/get_fanslist');
+	//发微博请求地址
+	define('SEND_T_URL','https://graph.qq.com/t/add_t');
 ?>

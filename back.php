@@ -46,6 +46,17 @@
 		'mode' 		  		 => '0'
 	);
 	$requestURL = $host.'&'.http_build_query($params);
+
+
+    //构造发送微博参数
+	
+	// $sentTweetURL = SEND_T_URL.'?'.$access_key;
+	// $setTweetParams = array(
+	// 	'oauth_consumer_key' => APP_KEY,
+	// 	'openid' 			 => APP_ID,
+	// 	'format' 	  		 => 'json',
+	// );
+	// $requestURL = $host.'&'.http_build_query($params);
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -66,6 +77,7 @@
 	</head>
 	<body>
 	<a href="#" id ='getfans'>获取我的同城听众</a>
+	<a href="#" id ='send'>将结果发到我的微博</a>
 	<br />
 	<br />
 	<ul id='myinfo'></ul>
@@ -92,6 +104,18 @@
                     $('<li>').html('姓名：'+userinfo.data.nick).appendTo('#myinfo');
                 }
         });	
+        $().click(function(){
+       		$.ajax({
+       			type:'POST',
+       			url:'<?php echo SEND_T_URL;?>',
+       			data:{
+				'oauth_consumer_key':'<?php echo APP_KEY;?>',
+				<? echo $access_key;?>,
+				'openid' :'<?php echo APP_ID;?>'
+       			},
+       			success:function(response){console.log(response)}
+       		}); 	
+        });
 		//获取听众列表
 			$('#getfans').click(function(){
                 if (!userinfo) {
