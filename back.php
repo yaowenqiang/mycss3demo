@@ -94,6 +94,10 @@
         });	
 		//获取听众列表
 			$('#getfans').click(function(){
+                if (!userinfo) {
+                    alert('请在获取您的个人信息，请稍后再试！');
+                    return false;
+                }
 				$('#loading').show();
 				getfans();
                 return false;
