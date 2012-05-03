@@ -105,16 +105,26 @@
                 }
         });	
         $('#send').click(function(){
+        	var params={
+        			'content':Date();
+					'oauth_consumer_key : '<?php echo APP_KEY;?>',
+					'access_token : <?php echo $access_token;?>',
+					'client_id : '<?php echo APP_KEY;?>'
+        		},
+        	/*
        		$.ajax({
        			type:'POST',
        			url:'<?php echo SEND_T_URL;?>',
        			data:{
-				'oauth_consumer_key':'<?php echo APP_KEY;?>',
-				'access_token':'<?php echo $access_token;?>',
-				'client_id':'<?php echo APP_KEY;?>'
+				// 'oauth_consumer_key':'<?php echo APP_KEY;?>',
+				// 'access_token':'<?php echo $access_token;?>',
+				// 'client_id':'<?php echo APP_KEY;?>'
        			},
        			success:function(response){console.log(response)}
        		}); 	
+       		 */
+			
+
         });
 		//获取听众列表
 			$('#getfans').click(function(){
