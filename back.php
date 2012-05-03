@@ -104,37 +104,39 @@
 		//获取听众列表
 			$('#getfans').click(function(){
 				$('#loading').show();
-				// startindex=20*(page -1); -->
+				// startindex=20*(page -1); 
 				// var url = request+'&startindex='+startindex; 
 				getfans();
 				<?php
-				<!-- while(1){ -->
-				<!-- startindex=20*(page -1); -->
-				<!-- url = request+'&startindex='+startindex; -->
-				<!-- $.ajax({ -->
-				<!-- 	url:url, -->
-				<!-- 	// data:{startindex:20*(page - 1)}, -->
-				<!-- 	type:'GET', -->
-				<!-- 	success:function(res){ -->
-				<!-- 			data = (res.responseText); -->
-				<!-- 			fans = JSON.parse($(data).text()); -->
-				<!-- 			<!-- fansinfo = []; --> -->
-				<!-- 			$.each(fans.data.info,function(i,item){ -->
-				<!-- 				if(item.city_code == userinfo.data.city_code){ -->
-				<!-- 					$('<li>').html('姓名：'+item.nick).appendTo('#fanslist'); -->
-				<!-- 				} -->
-				<!-- 			}); -->
-				<!-- 			if(fans.data.hasnext){ -->
-				<!-- 				window.flag = 1;	 -->
-				<!-- 			} -->
-				<!-- 		} -->
-				<!-- });	 -->
-				<!-- if(window.flag == 1){ -->
-				<!-- 	break; -->
-				<!-- }else { -->
-				<!-- 	page++; -->
-				<!-- } -->
-				<!-- } -->
+                /*
+				while(1){
+				startindex=20*(page -1);
+				url = request+'&startindex='+startindex;
+				$.ajax({
+					url:url,
+					// data:{startindex:20*(page - 1)},
+					type:'GET',
+					success:function(res){
+							data = (res.responseText);
+							fans = JSON.parse($(data).text());
+							<!-- fansinfo = []; -->
+							$.each(fans.data.info,function(i,item){
+								if(item.city_code == userinfo.data.city_code){
+									$('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+								}
+							});
+							if(fans.data.hasnext){
+								window.flag = 1;	
+							}
+						}
+				});	
+				if(window.flag == 1){
+					break;
+				}else {
+					page++;
+				}
+				}
+
 				*/
 				?>
 			});
