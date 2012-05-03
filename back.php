@@ -16,7 +16,7 @@
 	$requestUrl = GET_TOKEN_URL.'?'.http_build_query($params);
 	$result = file_get_contents($requestUrl);
 	list($access_key,$expire_time) = explode('&',$result);
-
+	list(,$access_token)= explode('=','$access_key');
     //求证open id
 
 	$getOpenIDUrl = GET_OPENID_URL.'?'.$access_key;
@@ -110,7 +110,7 @@
        			url:'<?php echo SEND_T_URL;?>',
        			data:{
 				'oauth_consumer_key':'<?php echo APP_KEY;?>',
-				<? echo $access_key;?>,
+				'access_token':'<? echo $access_token;?>',
 				'openid' :'<?php echo APP_ID;?>'
        			},
        			success:function(response){console.log(response)}
