@@ -108,9 +108,10 @@
         	var params={
         			'content':Date(),
 					'oauth_consumer_key : '<?php echo APP_KEY;?>',
-					'access_token : <?php echo $access_token;?>',
-					'client_id : '<?php echo APP_KEY;?>'
+					'access_token' : '<?php echo $access_token;?>',
+					'client_id' : '<?php echo APP_KEY;?>'
         		},
+        	querystrin = ToqueryStrin(params);
         	/*
        		$.ajax({
        			type:'POST',
