@@ -1,0 +1,1 @@
+select * from htmlpost where url='https://graph.qq.com/t/add_t' and postdata='content=Thu%20May%2003%202012%2022%3A19%3A58%20GMT%2B0800&oauth_consumer_key=100266584&access_token=1C689E6A2736DDAF6D5B778B9C0F863B&client_id=100266584' and xpath ='*'

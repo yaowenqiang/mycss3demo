@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp test</title>
+	<script type="text/javascript">
+		function toQueryString(obj) {    
+  	  	  var parts = [];    
+  	  	  for(var each in obj) if (obj.hasOwnProperty(each)) {
+    		parts.push(encodeURIComponent(each) + '=' + encodeURIComponent(obj[each]));    
+  	  	  }    
+  	  	  return parts.join('&');  
+		}
+		function YQLQuery(query, callback) {
+    		this.query = query;
+    		this.callback = callback || function(){};
+    		this.fetch = function() {
+
+        		if (!this.query || !this.callback) {
+            		throw new Error('YQLQuery.fetch(): Parameters may be undefined');
+        		}
+
+        		var scriptEl = document.createElement('script'),
+            		uid = 'yql' + +new Date(),
+            		// encodedQuery = encodeURIComponent(this.query),
+            		encodedQuery = this.query,
+            		instance = this;
+
+        		YQLQuery[uid] = function(json) {
+            		instance.callback(json);
+            		delete YQLQuery[uid];
+            		document.body.removeChild(scriptEl);
+        		};
+
+        scriptEl.src = 'http://query.yahooapis.com/v1/public/yql?q=' + encodedQuery + '&format=json&callback=YQLQuery.' + uid; 
+        // scriptEl.src = 'http://query.yahooapis.com/v1/public/yql?q=' + encodedQuery + '&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys'
+        	console.log(scriptEl.src);
+        		document.body.appendChild(scriptEl);
+
+    		};
+		}
+	</script>
+</head>
+<body>
+	YQL test.
+	<script type="text/javascript">
+	var yql_base_uri = "http://query.yahooapis.com/v1/yql";  
+	var requesturl = 'https://graph.qq.com/t/add_t';
+    var params={};
+    params.content = Date();
+    params.oauth_consumer_key = '100266584';
+    params.access_token = '1C689E6A2736DDAF6D5B778B9C0F863B';
+    params.client_id = '100266584';
+	postdata = toQueryString(params);
+	var sql = "select * from htmlpost where url='"+requesturl+"' and postdata='"+postdata+"' and xpath ='*'";
+	// var sql = "select%20*%20from%20htmlpost%20where%20url%3D'https%3A%2F%2Fgraph.qq.com%2Ft%2Fadd_t'and%20postdata%3D'"+postdata+"' and xpath ='*'";
+	console.log(sql);
+	// Construct your query:
+	// var query = "select * from rss where url='somefeed.com' limit 1";
+
+	// Define your callback:
+	var callback = function(data) {
+    	var post = data.query.results.item;
+    	// alert(post.title);
+    	console.log(data);
+	};
+
+	// Instantiate with the query:
+	var firstFeedItem = new YQLQuery(sql, callback);
+
+	// If you're ready then go:
+	firstFeedItem.fetch(); // Go!!
+	</script>
+</body>
+</html

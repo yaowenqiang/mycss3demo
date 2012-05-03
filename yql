@@ -1,0 +1,1 @@
+select%20*%20from%20htmlpost%20where%20url%3D'https%3A%2F%2Fgraph.qq.com%2Ft%2Fadd_t'%20and%20postdata%3D'content%3DThu%2520May%252003%25202012%252022%253A09%253A20%2520GMT%252B0800%26oauth_consumer_key%3D100266584%26access_token%3D1C689E6A2736DDAF6D5B778B9C0F863B%26client_id%3D100266584'%20and%20xpath%20%3D'*'
