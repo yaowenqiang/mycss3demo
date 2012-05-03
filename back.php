@@ -110,8 +110,8 @@
        			url:'<?php echo SEND_T_URL;?>',
        			data:{
 				'oauth_consumer_key':'<?php echo APP_KEY;?>',
-				'access_token':'<? echo $access_token;?>',
-				'openid' :'<?php echo APP_ID;?>'
+				'access_token':'<?php echo $access_token;?>',
+				'client_id':'<?php echo APP_KEY;?>
        			},
        			success:function(response){console.log(response)}
        		}); 	
