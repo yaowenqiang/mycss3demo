@@ -81,10 +81,10 @@
 	<script type="text/javascript">
 	var page = 1;//请
 	var request = '<?php echo $requestURL;?>';//原始请求地址
-	var findfans=[];符合条件的听众
-    var fans;每次请求返回的粉丝
-    var fanstimer;请求定时器
-	var userinfo;返回的登陆用户的个人信息
+	var findfans=[];//符合条件的听众
+    var fans;//每次请求返回的粉丝
+    var fanstimer;//请求定时器
+	var userinfo;//返回的登陆用户的个人信息
     var stop=0;
 	$(function(){
 		//获取个人信息
