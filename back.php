@@ -140,6 +140,7 @@ function getfans()
 {
 	startindex=20*(page -1); 
 	url = request+'&startindex='+startindex; 
+    console.log(url);
 	$.ajax({
 		url:url,
 		type:'GET',
