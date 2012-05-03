@@ -113,7 +113,7 @@
         	params.access_token = '<?php echo $access_token;?>';
         	params.client_id = '<?php echo APP_KEY;?>';
 			postdata = toQueryString(params);
-			var sql = "select * from htmlpost where url='"+requesturl+"' and
+			var sql = "select * from htmlpost where url='"+'<?php SEND_T_URL;?>'+"' and
 			postdata='"+postdata+"' and xpath ='*'";
         	// var queryString = 
         	//querystrin = ToqueryStrin(params);
