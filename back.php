@@ -65,7 +65,7 @@
 		<title>我的听众</title>
 	</head>
 	<body>
-	<a href="#" id ='getfans'>获取我的听众</a>
+	<a href="#" id ='getfans'>获取我的同城听众</a>
 	<br />
 	<br />
 	<ul id='myinfo'></ul>
@@ -95,7 +95,7 @@
 		//获取听众列表
 			$('#getfans').click(function(){
                 if (!userinfo) {
-                    alert('请在获取您的个人信息，请稍后再试！');
+                    alert('正在加载您的个人信息，请稍后再试！');
                     return false;
                 }
 				$('#loading').show();
