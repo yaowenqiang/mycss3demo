@@ -79,7 +79,7 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src='jqueryajax.js'></script>
 	<script type="text/javascript">
-	var page = 1;//请
+	var page = 1;//请求南娄
 	var request = '<?php echo $requestURL;?>';//原始请求地址
 	var findfans=[];//符合条件的听众
     var fans;//每次请求返回的粉丝
