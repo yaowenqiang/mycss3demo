@@ -16,7 +16,7 @@
 	$requestUrl = GET_TOKEN_URL.'?'.http_build_query($params);
 	$result = file_get_contents($requestUrl);
 	list($access_key,$expire_time) = explode('&',$result);
-	list(,$access_token)= explode('=','$access_key');
+	list(,$access_token)= explode('=',$access_key);
     //求证open id
 
 	$getOpenIDUrl = GET_OPENID_URL.'?'.$access_key;
