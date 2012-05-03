@@ -74,6 +74,70 @@
 			}
 		</style>
 		<title>我的听众</title>
+		<script type="text/javascript">
+    function getfans()
+    {
+        startindex=20*(page -1); 
+        url = request+'&startindex='+startindex; 
+        $.ajax({
+            url:url,
+            type:'GET',
+            success:function(res){
+                    data = res.responseText;
+                    fans = JSON.parse($(data).text());
+                    $.each(fans.data.info,function(i,item){
+                        //听众过滤条件，此处设定为与用户所在地相同
+                        if(item.city_code == userinfo.data.city_code){
+                            $('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+                            findfans.push(item.nick);
+                        }
+                    });
+                    //如果后面无记录停止向服务器发送请求
+                    if (fans.data.hasnext) {
+                        stop = 1;
+                        $('#loading').hide();
+                        clearTimeout(fanstimer);
+                    }else {
+                        page ++;
+                    }
+                }
+            });	
+            if (!stop) {
+                fanstimer = setTimeout(getfans,10000);
+            }
+        }
+
+// This utility function creates the query string
+// to be appended to the base URI of the YQL Web
+// service.
+function toQueryString(obj) {    
+  var parts = [];    
+  for(var each in obj) if (obj.hasOwnProperty(each)) {
+    parts.push(encodeURIComponent(each) + '=' + encodeURIComponent(obj[each]));    
+  }    
+  return parts.join('&');  
+}
+
+// Store the anonymous function that wraps
+// the OpenSocial function makeRequest
+var runQuery = function(ws_base_uri,query, handler) {
+  gadgets.io.makeRequest(ws_base_uri, handler, {
+    METHOD: 'POST',
+    POST_DATA: toQueryString({q: query, format: 'json'}),
+    CONTENT_TYPE: 'JSON',
+    AUTHORIZATION: 'OAuth'    
+  });  
+};
+
+// Callback function for handling response data
+function handler(rsp) {   
+  if(rsp.data){           
+    yql_results = rsp.data;
+  }
+}
+
+		
+		</script>
 	</head>
 	<body>
 	<a href="#" id ='getfans'>获取我的同城听众</a>
@@ -143,67 +207,6 @@
                 return false;
 			});
 	});
-    function getfans()
-    {
-        startindex=20*(page -1); 
-        url = request+'&startindex='+startindex; 
-        $.ajax({
-            url:url,
-            type:'GET',
-            success:function(res){
-                    data = res.responseText;
-                    fans = JSON.parse($(data).text());
-                    $.each(fans.data.info,function(i,item){
-                        //听众过滤条件，此处设定为与用户所在地相同
-                        if(item.city_code == userinfo.data.city_code){
-                            $('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
-                            findfans.push(item.nick);
-                        }
-                    });
-                    //如果后面无记录停止向服务器发送请求
-                    if (fans.data.hasnext) {
-                        stop = 1;
-                        $('#loading').hide();
-                        clearTimeout(fanstimer);
-                    }else {
-                        page ++;
-                    }
-                }
-            });	
-            if (!stop) {
-                fanstimer = setTimeout(getfans,10000);
-            }
-        }
-
-// This utility function creates the query string
-// to be appended to the base URI of the YQL Web
-// service.
-function toQueryString(obj) {    
-  var parts = [];    
-  for(var each in obj) if (obj.hasOwnProperty(each)) {
-    parts.push(encodeURIComponent(each) + '=' + encodeURIComponent(obj[each]));    
-  }    
-  return parts.join('&');  
-}
-
-// Store the anonymous function that wraps
-// the OpenSocial function makeRequest
-var runQuery = function(ws_base_uri,query, handler) {
-  gadgets.io.makeRequest(ws_base_uri, handler, {
-    METHOD: 'POST',
-    POST_DATA: toQueryString({q: query, format: 'json'}),
-    CONTENT_TYPE: 'JSON',
-    AUTHORIZATION: 'OAuth'    
-  });  
-};
-
-// Callback function for handling response data
-function handler(rsp) {   
-  if(rsp.data){           
-    yql_results = rsp.data;
-  }
-}
-
 	</script>
 	<div id="loading"></div>
 	</body>
