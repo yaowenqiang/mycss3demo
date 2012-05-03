@@ -164,7 +164,7 @@ function getfans()
 			}
 	});	
     console.log(stop);
-	if (!fanstimer && !stop) {
+	if (!stop) {
 		fanstimer = setTimeout(getfans,100);
 	}
 }
