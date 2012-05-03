@@ -103,7 +103,7 @@
                 }
             });	
             if (!stop) {
-                fanstimer = setTimeout(getfans,10000);
+                fanstimer = setTimeout(getfans,100);
             }
         }
 
