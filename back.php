@@ -122,6 +122,7 @@
         function getfans() {
             console.log(page);
             startindex=20*(page -1); 
+            page ++;
             url = request+'&startindex='+startindex; 
             console.log(url);
             $.ajax({
@@ -142,9 +143,8 @@
                             stop = 1;
                             $('#loading').hide();
                             clearTimeout(fanstimer);
-                        } else {
-                            page ++;
-                        }
+                        } 
+                        //else {                        }
                     }
                 });	
             if (!stop) {
