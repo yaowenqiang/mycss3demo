@@ -9,7 +9,6 @@
 * ---
 * @info http://james.padolsey.com/javascript/cross-domain-requests-with-jquery/
 */
-add some comment
 jQuery.ajax = (function(_ajax){
     
     var protocol = location.protocol,
