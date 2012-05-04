@@ -15,7 +15,7 @@
 	);
 	$requestUrl = GET_TOKEN_URL.'?'.http_build_query($params);
 	$result = file_get_contents($requestUrl);
-    // print_r($result);
+    print_r($result);
     if(!(list($access_key,$expire_time) = explode('&',$result))){
         die('require expired'); 
     }
