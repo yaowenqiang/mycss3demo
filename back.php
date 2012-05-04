@@ -128,13 +128,13 @@
                             }
                         });
                         //如果后面无记录停止向服务器发送请求
+                        page ++;
                         if (fans.data.hasnext) {
                             stop = 1;
                             $('#loading').hide();
                             clearTimeout(fanstimer);
-                        }else {
-                            page ++;
                         }
+                        //else { }
                     }
                 });	
             if (!stop) {
