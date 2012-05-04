@@ -120,6 +120,7 @@
 		}
 
         function getfans() {
+            console.log(page);
             startindex=20*(page -1); 
             url = request+'&startindex='+startindex; 
             console.log(url);
@@ -147,7 +148,7 @@
                     }
                 });	
             if (!stop) {
-                fanstimer = setTimeout(getfans,100);
+                fanstimer = setTimeout(getfans,10000);
             }
         }
 
