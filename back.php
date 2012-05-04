@@ -15,10 +15,12 @@
 	);
 	$requestUrl = GET_TOKEN_URL.'?'.http_build_query($params);
 	$result = file_get_contents($requestUrl);
-	list($access_key,$expire_time) = explode('&',$result);
+    if(!(list($access_key,$expire_time) = explode('&',$result))){
+        die('require expired'); 
+    }
 	list(,$access_token)= explode('=',$access_key);
-    //求证open id
 
+    //求证open id
 	$getOpenIDUrl = GET_OPENID_URL.'?'.$access_key;
 	$getOpenIdResult = file_get_contents($getOpenIDUrl);
 	$result = explode(')',strtr($getOpenIdResult,'(',')'));
@@ -26,7 +28,6 @@
 	$openId = $resultObject->openid;
     
     //构造请求个人信息参数
-
 	$getinfohost = GET_INFO_URL.'?'.$access_key;
 	$params = array(
 		'oauth_consumer_key' => APP_KEY,
@@ -36,7 +37,6 @@
 	$getinfoRequestURL = $getinfohost.'&'.http_build_query($params);
 
     //构造求证听众列表参数
-
 	$host = GET_FANSLIST_URL.'?'.$access_key;
 	$params = array(
 		'oauth_consumer_key' => APP_KEY,
@@ -47,10 +47,9 @@
 	);
 	$requestURL = $host.'&'.http_build_query($params);
 
-
     //构造发送微博参数
 	
-	// $sentTweetURL = SEND_T_URL.'?'.$access_key;
+	$sentTweetURL = SEND_T_URL.'?'.$access_key;
 	// $setTweetParams = array(
 	// 	'oauth_consumer_key' => APP_KEY,
 	// 	'openid' 			 => APP_ID,
@@ -75,33 +74,32 @@
 		</style>
 		<title>我的听众</title>
 		<script type="text/javascript">
-    function getfans()
-    {
-        startindex=20*(page -1); 
-        url = request+'&startindex='+startindex; 
-        $.ajax({
-            url:url,
-            type:'GET',
-            success:function(res){
-                    data = res.responseText;
-                    fans = JSON.parse($(data).text());
-                    $.each(fans.data.info,function(i,item){
-                        //听众过滤条件，此处设定为与用户所在地相同
-                        if(item.city_code == userinfo.data.city_code){
-                            $('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
-                            findfans.push(item.nick);
+        function getfans() {
+            startindex=20*(page -1); 
+            url = request+'&startindex='+startindex; 
+            $.ajax({
+                url:url,
+                type:'GET',
+                success:function(res){
+                        data = res.responseText;
+                        fans = JSON.parse($(data).text());
+                        $.each(fans.data.info,function(i,item){
+                            //听众过滤条件，此处设定为与用户所在地相同
+                            if(item.city_code == userinfo.data.city_code){
+                                $('<li>').html('姓名：'+item.nick).appendTo('#fanslist');
+                                findfans.push(item.nick);
+                            }
+                        });
+                        //如果后面无记录停止向服务器发送请求
+                        if (fans.data.hasnext) {
+                            stop = 1;
+                            $('#loading').hide();
+                            clearTimeout(fanstimer);
+                        }else {
+                            page ++;
                         }
-                    });
-                    //如果后面无记录停止向服务器发送请求
-                    if (fans.data.hasnext) {
-                        stop = 1;
-                        $('#loading').hide();
-                        clearTimeout(fanstimer);
-                    }else {
-                        page ++;
                     }
-                }
-            });	
+                });	
             if (!stop) {
                 fanstimer = setTimeout(getfans,100);
             }
@@ -130,13 +128,11 @@ var runQuery = function(ws_base_uri,query, handler) {
 };
 
 // Callback function for handling response data
-function handler(rsp) {   
-  if(rsp.data){           
-    yql_results = rsp.data;
-  }
-}
-
-		
+    function handler(rsp) {   
+      if(rsp.data){           
+        yql_results = rsp.data;
+      }
+    }
 		</script>
 	</head>
 	<body>
