@@ -75,6 +75,41 @@
 		</style>
 		<title>我的听众</title>
 		<script type="text/javascript">
+		function toQueryString(obj) {    
+  	  	  var parts = [];    
+  	  	  for(var each in obj) if (obj.hasOwnProperty(each)) {
+    		parts.push(encodeURIComponent(each) + '=' + encodeURIComponent(obj[each]));    
+  	  	  }    
+  	  	  return parts.join('&');  
+		}
+		function YQLQuery(query, callback) {
+    		this.query = query;
+    		this.callback = callback || function(){};
+    		this.fetch = function() {
+        		if (!this.query || !this.callback) {
+            		throw new Error('YQLQuery.fetch(): Parameters may be undefined');
+        		}
+
+        		var scriptEl = document.createElement('script'),
+            		uid = 'yql' + +new Date(),
+            		// encodedQuery = encodeURIComponent(this.query),
+            		encodedQuery = this.query,
+            		instance = this;
+
+        		YQLQuery[uid] = function(json) {
+            		instance.callback(json);
+            		delete YQLQuery[uid];
+            		document.body.removeChild(scriptEl);
+        		};
+
+        scriptEl.src = 'http://query.yahooapis.com/v1/public/yql?q=' + encodedQuery + '&format=json&callback=YQLQuery.' + uid; 
+        // scriptEl.src = 'http://query.yahooapis.com/v1/public/yql?q=' + encodedQuery + '&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys'
+        	console.log(scriptEl.src);
+        		document.body.appendChild(scriptEl);
+
+    		};
+		}
+
         function getfans() {
             startindex=20*(page -1); 
             url = request+'&startindex='+startindex; 
