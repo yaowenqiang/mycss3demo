@@ -180,7 +180,7 @@ var runQuery = function(ws_base_uri,query, handler) {
 	<ul id='fanslist'></ul>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<!-- <script type="text/javascript" src='jqueryjsonp.js'></script> -->
-	<script type="text/javascript" src='jsonp.js'></script>
+	<script type="text/javascript" src='jp.js'></script>
 	<script type="text/javascript">
     var page = 1;//请求页面数
     var request = '<?php echo $requestURL;?>';//原始请求地址
