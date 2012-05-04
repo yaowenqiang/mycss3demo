@@ -75,6 +75,15 @@
 		</style>
 		<title>我的听众</title>
 		<script type="text/javascript">
+
+        var page = 1;//请求页面数
+        var request = '<?php echo $requestURL;?>';//原始请求地址
+        var findfans=[];//符合条件的听众
+        var fans;//每次请求返回的 听众
+        var fanstimer;//请求定时器
+        var userinfo;//当前登陆用户的个人信息
+        var stop=0;//请求是否停止
+
 		function toQueryString(obj) {    
   	  	  var parts = [];    
   	  	  for(var each in obj) if (obj.hasOwnProperty(each)) {
@@ -128,13 +137,13 @@
                             }
                         });
                         //如果后面无记录停止向服务器发送请求
-                        page ++;
                         if (fans.data.hasnext) {
                             stop = 1;
                             $('#loading').hide();
                             clearTimeout(fanstimer);
+                        } else {
+                            page ++;
                         }
-                        //else { }
                     }
                 });	
             if (!stop) {
@@ -183,13 +192,6 @@ var runQuery = function(ws_base_uri,query, handler) {
 	<!-- <script type="text/javascript" src='jqueryjsonp.js'></script> -->
 	<script type="text/javascript" src='jp.js'></script>
 	<script type="text/javascript">
-    var page = 1;//请求页面数
-    var request = '<?php echo $requestURL;?>';//原始请求地址
-	var findfans=[];//符合条件的听众
-    var fans;//每次请求返回的 听众
-    var fanstimer;//请求定时器
-	var userinfo;//当前登陆用户的个人信息
-    var stop=0;//请求是否停止
 	$(function(){
 		//获取个人信息
         $.ajax({
