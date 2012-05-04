@@ -51,7 +51,7 @@
     //构造发送微博参数
 	
 	$sentTweetURL = SEND_T_URL.'?'.$access_key;
-	// $setTweetParams = array(
+	// $sendTweetParams = array(
 	// 	'oauth_consumer_key' => APP_KEY,
 	// 	'openid' 			 => APP_ID,
 	// 	'format' 	  		 => 'json',
