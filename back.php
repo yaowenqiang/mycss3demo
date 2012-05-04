@@ -15,10 +15,10 @@
 	);
 	$requestUrl = GET_TOKEN_URL.'?'.http_build_query($params);
 	$result = file_get_contents($requestUrl);
-    print_r($result);
-    if(!(list($access_key,$expire_time) = explode('&',$result))){
+    if (strpos($result,'error')) {
         die('require expired'); 
     }
+    list($access_key,$expire_time) = explode('&',$result);
 	list(,$access_token)= explode('=',$access_key);
 
     //求证open id
